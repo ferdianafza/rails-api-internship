@@ -1,9 +1,3 @@
-<style>
-  .checkin {
-    background-color: blue;
-    color: white;
-  }
-</style>
 <%= form_for @presence do |form| %>
   <% if @presence.errors.any? %>
     <div id="error_explanation">
@@ -24,6 +18,6 @@
 
 
   <div class="actions">
-    <%= form.submit :Checkin, class: "d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"%>
+   <%= button_tag 'Checkin', class: "checkin-button" %>
   </div>
 <% end %>

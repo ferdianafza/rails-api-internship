@@ -66,8 +66,8 @@ end
       row :status
       row :school
       row :major
-      row :mothers_name
-      row :fathers_name
+      row :mother_name
+      row :father_name
       row :phone
       row :zipcode
       row :address
@@ -113,8 +113,8 @@ end
       f.input :city
       f.input :province
       f.input :zipcode
-      f.input :mothers_name
-      f.input :fathers_name
+      f.input :mother_name
+      f.input :father_name
       f.input :emergency_number
       f.input :start_at
       f.input :end_at

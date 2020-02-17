@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_16_110759) do
+ActiveRecord::Schema.define(version: 2020_02_17_130209) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -116,8 +116,8 @@ ActiveRecord::Schema.define(version: 2020_02_16_110759) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "mothers_name"
-    t.string "fathers_name"
+    t.string "mother_name"
+    t.string "father_name"
     t.integer "emergency_number"
     t.date "start_at"
     t.date "end_at"

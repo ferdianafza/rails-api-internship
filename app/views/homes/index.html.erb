@@ -4,7 +4,7 @@
     <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
       <% if @student_last_presences_checkin != Date.today %>
         <div class="partial-form">
-          <%= render partial: 'checkin', presence: @presence %>
+          <%= render partial: 'checkin' %>
         </div>
       <% elsif @student_last_presences_checkout == nil %>
         <div class="partial-form">
@@ -12,7 +12,7 @@
         </div>
       <% else @student_last_presences_checkout != nil %>
       <% end %>
-    <a href="/reports/new" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Create Report</a>
+    <a href="/reports/new" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="color: white; text-decoration: none;"> Create Report</a>
   </div>
 
   <div class="row">

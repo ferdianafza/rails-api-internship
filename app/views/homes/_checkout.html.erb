@@ -1,7 +1,21 @@
 <style>
-	input.button-checkout {
-		background-color: red;
-	}
+.checkout-button{
+  /*   background: transparent;*/
+     border: 1px solid #e8e8e8;
+   /*  display: block;*/
+      float: right;
+      background: red;
+      color: white;
+      font-weight: 400;
+      font-size: 1.4em; //font size does not change
+      display: block;
+     /* padding: 0px 4px 0px 4px; //modification doesn't show..*/
+      text-decoration: none;
+      &:hover {
+        color: blue;
+        background: blue;
+      }
+  }
 </style>
 <%= form_for @presence_to_update, :url => { :action => "update" } do |form| %>
   <div class="field" hidden="">
@@ -10,6 +24,7 @@
   </div>
 
   <div class="actions">
-    <%= form.submit :Checkout, class: "button-checkout btn btn-primary btn-user btn-block" %>
+    <%= button_tag 'Checkout', class: "checkout-button" %>
+
   </div>
 <% end %>

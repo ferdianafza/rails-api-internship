@@ -40,6 +40,7 @@ class Student < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable,  :recoverable, :rememberable, :validatable
 
+  validates :firstname, presence: true
 
   def password_required?
 	 false

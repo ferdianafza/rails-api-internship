@@ -6,6 +6,14 @@ GIT
       activerecord (>= 3.2, < 7.0)
       rake (>= 10.4, < 13.0)
 
+GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: ed7eed8aa47432015303a65a28441155d22904ef
+  branch: master
+  specs:
+    faker (2.10.2)
+      i18n (>= 1.6, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -282,6 +290,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise
+  faker!
   font-awesome-rails (~> 4.7)
   image_processing (~> 1.2)
   jbuilder (~> 2.7)

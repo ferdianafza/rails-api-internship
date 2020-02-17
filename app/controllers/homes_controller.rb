@@ -4,8 +4,8 @@ class HomesController < ApplicationController
 
     def index
       @presences_students = current_student.presences.order(created_at: :desc).limit(6)
-      @student_last_presences_checkin = current_student.presences.last.checkin.to_date
-      @student_last_presences_checkout = current_student.presences.last.checkout
+      @student_last_presences_checkin = current_student.presences.last.checkin.to_date rescue Date.yesterday
+      @student_last_presences_checkout = current_student.presences.last.checkout rescue Date.yesterday
       @presence = current_student.presences.new
       @presence_to_update = current_student.presences.last
     end

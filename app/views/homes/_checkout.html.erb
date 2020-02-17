@@ -1,3 +1,8 @@
+<style>
+	input.button-checkout {
+		background-color: red;
+	}
+</style>
 <%= form_for @presence_to_update, :url => { :action => "update" } do |form| %>
   <div class="field" hidden="">
     <%= form.label :checkout %>
@@ -5,6 +10,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit :Checkout, class: "btn btn-primary btn-user btn-block" %>
+    <%= form.submit :Checkout, class: "button-checkout btn btn-primary btn-user btn-block" %>
   </div>
 <% end %>

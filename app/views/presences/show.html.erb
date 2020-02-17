@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Checkin:</strong>
+  <%= @presence.checkin %>
+</p>
+
+<p>
+  <strong>Checkout:</strong>
+  <%= @presence.checkout %>
+</p>
+
+<%= render 'checkout', presence: @presence %>

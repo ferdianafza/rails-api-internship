@@ -1,0 +1,358 @@
+<div id="user-profile-2" class="user-profile">
+    <div class="tabbable">
+     <!--  <ul class="nav nav-tabs padding-18">
+        <li class="active">
+          <a data-toggle="tab" href="#home">
+            <i class="green ace-icon fa fa-user bigger-120"></i>
+            Profile
+          </a>
+        </li>
+
+        <li>
+          <a data-toggle="tab" href="#pictures">
+            <i class="pink ace-icon fa fa-picture-o bigger-120"></i>
+            Pictures
+          </a>
+        </li>
+      </ul> -->
+
+      <div class="tab-content no-border padding-24">
+        <div id="home" class="tab-pane in active">
+          <div class="row">
+            <div class="col-xs-12 col-sm-3 center">
+              <span class="profile-picture">
+               <!--  <img class="editable img-responsive" alt=" Avatar" id="avatar2" src="http://bootdey.com/img/Content/avatar/avatar6.png"> -->
+                <% if current_student.avatar.attached? %>
+                    <%= image_tag url_for(current_student.avatar), class: "editable img-responsive"%>
+                <% end %>
+              </span>
+
+              <div class="space space-4"></div>
+
+              <a href="#" class="btn btn-sm btn-block btn-success">
+                <span class="bigger-110"><%= current_student.firstname %><%= current_student.lastname %></span>
+              </a>
+
+              <a href="#" class="btn btn-sm btn-block btn-primary">
+                <i class="ace-icon fa fa-envelope-o bigger-110"></i>
+                <span class="bigger-110"><%= current_student.email %></span>
+              </a>
+            </div><!-- /.col -->
+
+            <div class="col-xs-12 col-sm-9">
+              <h4 class="blue">
+                <span class="middle"><%= current_student.firstname %> <%= current_student.lastname %></span>
+
+                <span class="label label-purple arrowed-in-right">
+                  <i class="ace-icon fa fa-circle smaller-80 align-middle"></i>
+                  <%= current_student.major.name %>
+                </span>
+              </h4>
+
+              <div class="profile-user-info">
+                <div class="profile-info-row">
+                  <div class="profile-info-name"> Nis </div>
+
+                  <div class="profile-info-value">
+                    <span><%= current_student.nis %></span>
+                  </div>
+                </div>
+
+                <div class="profile-info-row">
+                  <div class="profile-info-name"> Location </div>
+
+                  <div class="profile-info-value">
+                    <i class="fa fa-map-marker light-orange bigger-110"></i>
+                    <span><%= current_student.address %></span>
+                    <span><%= current_student.zipcode %></span>
+                    <span><%= current_student.city %></span>
+                    <span><%= current_student.province.name %></span>
+                  </div>
+                </div>
+
+                <div class="profile-info-row">
+                  <div class="profile-info-name"> Phone </div>
+
+                  <div class="profile-info-value">
+                    <span><%= current_student.phone %></span>
+                  </div>
+                </div>
+
+                <div class="profile-info-row">
+                  <div class="profile-info-name"> Periode </div>
+
+                  <div class="profile-info-value">
+                    <span><%= current_student.start_at %> until <%= current_student.end_at %> </span>
+                  </div>
+                </div>
+
+                <div class="profile-info-row">
+                  <div class="profile-info-name"> Emergency Call </div>
+
+                  <div class="profile-info-value">
+                    <span><%= current_student.emergency_number %></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hr hr-8 dotted"></div>
+
+              <div class="profile-user-info">
+                <div class="profile-info-row">
+                  <div class="profile-info-name"> School </div>
+
+                  <div class="profile-info-value">
+                    <span><%= current_student.school %></span>
+                  </div>
+                </div>
+
+                <div class="profile-info-row">
+                  <div class="profile-info-name">
+                    <!-- <i class="middle ace-icon fa fa-facebook-square bigger-150 blue"></i> -->
+                    <span>Mothers Name</span>
+                  </div>
+
+                  <div class="profile-info-value">
+                    <!-- <a href="#">Find me on Facebook</a> -->
+                    <span><%= current_student.mothers_name %></span>
+                  </div>
+                </div>
+
+                <div class="profile-info-row">
+                  <div class="profile-info-name">
+                    <!-- <i class="middle ace-icon fa fa-twitter-square bigger-150 light-blue"></i> -->
+                    <span>Fathers Name</span>
+                  </div>
+
+                  <div class="profile-info-value">
+                    <span><%= current_student.fathers_name %></span>
+                  </div>
+                </div>
+              </div>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+
+          <div class="space-20"></div>
+        </div><!-- /#home -->
+        <div id="pictures" class="tab-pane">
+          <ul class="ace-thumbnails">
+            <li>
+              <a href="#" data-rel="colorbox">
+                <img alt="150x150" src="http://lorempixel.com/200/200/nature/1/">
+                <div class="text">
+                  <div class="inner">Sample Caption on Hover</div>
+                </div>
+              </a>
+
+              <div class="tools tools-bottom">
+                <a href="#">
+                  <i class="ace-icon fa fa-link"></i>
+                </a>
+
+                <a href="#">
+                  <i class="ace-icon fa fa-paperclip"></i>
+                </a>
+
+                <a href="#">
+                  <i class="ace-icon fa fa-pencil"></i>
+                </a>
+
+                <a href="#">
+                  <i class="ace-icon fa fa-times red"></i>
+                </a>
+              </div>
+            </li>
+
+            <li>
+              <a href="#" data-rel="colorbox">
+                <img alt="150x150" src="http://lorempixel.com/200/200/nature/2/">
+                <div class="text">
+                  <div class="inner">Sample Caption on Hover</div>
+                </div>
+              </a>
+
+              <div class="tools tools-bottom">
+                <a href="#">
+                  <i class="ace-icon fa fa-link"></i>
+                </a>
+
+                <a href="#">
+                  <i class="ace-icon fa fa-paperclip"></i>
+                </a>
+
+                <a href="#">
+                  <i class="ace-icon fa fa-pencil"></i>
+                </a>
+
+                <a href="#">
+                  <i class="ace-icon fa fa-times red"></i>
+                </a>
+              </div>
+            </li>
+
+            <li>
+              <a href="#" data-rel="colorbox">
+                <img alt="150x150" src="http://lorempixel.com/200/200/nature/3/">
+                <div class="text">
+                  <div class="inner">Sample Caption on Hover</div>
+                </div>
+              </a>
+
+              <div class="tools tools-bottom">
+                <a href="#">
+                  <i class="ace-icon fa fa-link"></i>
+                </a>
+
+                <a href="#">
+                  <i class="ace-icon fa fa-paperclip"></i>
+                </a>
+
+                <a href="#">
+                  <i class="ace-icon fa fa-pencil"></i>
+                </a>
+
+                <a href="#">
+                  <i class="ace-icon fa fa-times red"></i>
+                </a>
+              </div>
+            </li>
+
+            <li>
+              <a href="#" data-rel="colorbox">
+                <img alt="150x150" src="http://lorempixel.com/200/200/nature/4/">
+                <div class="text">
+                  <div class="inner">Sample Caption on Hover</div>
+                </div>
+              </a>
+
+              <div class="tools tools-bottom">
+                <a href="#">
+                  <i class="ace-icon fa fa-link"></i>
+                </a>
+
+                <a href="#">
+                  <i class="ace-icon fa fa-paperclip"></i>
+                </a>
+
+                <a href="#">
+                  <i class="ace-icon fa fa-pencil"></i>
+                </a>
+
+                <a href="#">
+                  <i class="ace-icon fa fa-times red"></i>
+                </a>
+              </div>
+            </li>
+
+            <li>
+              <a href="#" data-rel="colorbox">
+                <img alt="150x150" src="http://lorempixel.com/200/200/nature/5/">
+                <div class="text">
+                  <div class="inner">Sample Caption on Hover</div>
+                </div>
+              </a>
+
+              <div class="tools tools-bottom">
+                <a href="#">
+                  <i class="ace-icon fa fa-link"></i>
+                </a>
+
+                <a href="#">
+                  <i class="ace-icon fa fa-paperclip"></i>
+                </a>
+
+                <a href="#">
+                  <i class="ace-icon fa fa-pencil"></i>
+                </a>
+
+                <a href="#">
+                  <i class="ace-icon fa fa-times red"></i>
+                </a>
+              </div>
+            </li>
+
+            <li>
+              <a href="#" data-rel="colorbox">
+                <img alt="150x150" src="http://lorempixel.com/200/200/nature/6/">
+                <div class="text">
+                  <div class="inner">Sample Caption on Hover</div>
+                </div>
+              </a>
+
+              <div class="tools tools-bottom">
+                <a href="#">
+                  <i class="ace-icon fa fa-link"></i>
+                </a>
+
+                <a href="#">
+                  <i class="ace-icon fa fa-paperclip"></i>
+                </a>
+
+                <a href="#">
+                  <i class="ace-icon fa fa-pencil"></i>
+                </a>
+
+                <a href="#">
+                  <i class="ace-icon fa fa-times red"></i>
+                </a>
+              </div>
+            </li>
+
+            <li>
+              <a href="#" data-rel="colorbox">
+                <img alt="150x150" src="http://lorempixel.com/200/200/nature/7/">
+                <div class="text">
+                  <div class="inner">Sample Caption on Hover</div>
+                </div>
+              </a>
+
+              <div class="tools tools-bottom">
+                <a href="#">
+                  <i class="ace-icon fa fa-link"></i>
+                </a>
+
+                <a href="#">
+                  <i class="ace-icon fa fa-paperclip"></i>
+                </a>
+
+                <a href="#">
+                  <i class="ace-icon fa fa-pencil"></i>
+                </a>
+
+                <a href="#">
+                  <i class="ace-icon fa fa-times red"></i>
+                </a>
+              </div>
+            </li>
+
+            <li>
+              <a href="#" data-rel="colorbox">
+                <img alt="150x150" src="http://lorempixel.com/200/200/nature/1/">
+                <div class="text">
+                  <div class="inner">Sample Caption on Hover</div>
+                </div>
+              </a>
+
+              <div class="tools tools-bottom">
+                <a href="#">
+                  <i class="ace-icon fa fa-link"></i>
+                </a>
+
+                <a href="#">
+                  <i class="ace-icon fa fa-paperclip"></i>
+                </a>
+
+                <a href="#">
+                  <i class="ace-icon fa fa-pencil"></i>
+                </a>
+
+                <a href="#">
+                  <i class="ace-icon fa fa-times red"></i>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div><!-- /#pictures -->
+      </div>
+    </div>
+  </div>

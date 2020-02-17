@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Presences</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Checkin</th>
+      <th>Checkout</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @presences.each do |presence| %>
+      <tr>
+        <td><%= presence.checkin.strftime("%A, %e %B %Y - %H:%M") %></td>
+        <td><%= presence.checkout.strftime("%A, %e %B %Y - %H:%M") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

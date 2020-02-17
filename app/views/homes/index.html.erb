@@ -1,0 +1,95 @@
+<div class="container-fluid">
+
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+      <% if @student_last_presences_checkin != Date.today %>
+        <div class="partial-form">
+          <%= render partial: 'checkin', presence: @presence %>
+        </div>
+      <% elsif @student_last_presences_checkout == nil %>
+        <div class="partial-form">
+          <%= render partial: 'checkout' %>
+        </div>
+      <% else @student_last_presences_checkout != nil %>
+      <% end %>
+    <a href="/reports/new" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Create Report</a>
+  </div>
+
+  <div class="row">
+    <div class="row">
+      <div class="col-xl-8 col-lg-7">
+        <div class="card shadow mb-4">
+          <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">Reports</h6>
+          </div>
+          <div class="card-body">
+            <div class="chart-area">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Subject</th>
+                    <th>Content</th>
+                    <th colspan="3"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% current_student.reports.each do |report| %>
+                    <tr>
+                      <td><%= report.subject %></td>
+                      <td><%= truncate(strip_tags(report.content), length: 30) %></td>
+                      <td><%= link_to 'Show', report %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+              <canvas id="myAreaChart">
+              </canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 mb-6" style="width: 1000px; height: 800px;">
+
+              <!-- Project Card Example -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">My Presences</h6>
+                </div>
+                <div class="card-body">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Checkin</th>
+                        <th>Checkout</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <% @presences_students.each do |presence| %>
+                        <tr>
+                          <td><%= presence.checkin %></td>
+                          <td><%= presence.checkout %></td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                  <div class="progress">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+            <div class="col-lg-6 mb-4">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+

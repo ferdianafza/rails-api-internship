@@ -1,0 +1,10 @@
+<%= form_for @presence_to_update, :url => { :action => "update" } do |form| %>
+  <div class="field" hidden="">
+    <%= form.label :checkout %>
+    <%= form.datetime_select :checkout %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit :Checkout, class: "btn btn-primary btn-user btn-block" %>
+  </div>
+<% end %>

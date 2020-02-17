@@ -1,0 +1,22 @@
+<%= form_with(model: presence, local: true) do |form| %>
+  <% if presence.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(presence.errors.count, "error") %> prohibited this presence from being saved:</h2>
+
+      <ul>
+        <% presence.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field" hidden="">
+    <%= form.label :checkout %>
+    <%= form.datetime_select :checkout %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit :Checkout %>
+  </div>
+<% end %>

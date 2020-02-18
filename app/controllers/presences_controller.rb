@@ -5,7 +5,7 @@ class PresencesController < ApplicationController
     before_action :set_student, only: [:index, :new, :show]
 
     def index
-      @presences = current_student.presences
+      @presences = current_student.presences.order(created_at: :desc).page params[:page]
     end
 
     def new

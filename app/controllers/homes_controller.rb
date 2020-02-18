@@ -3,6 +3,7 @@ class HomesController < ApplicationController
     before_action :set_checkout, only: [:index, :checkout, :update]
 
     def index
+      @reports = current_student.reports.order(created_at: :desc).limit(6)
       @presences_students = current_student.presences.order(created_at: :desc).limit(6)
       @student_last_presences_checkin = current_student.presences.last.checkin.to_date rescue Date.yesterday
       @student_last_presences_checkout = current_student.presences.last.checkout rescue Date.yesterday

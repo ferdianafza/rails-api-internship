@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Presences</h1>
+<h1>My Presences</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Checkin</th>
@@ -13,11 +13,14 @@
   <tbody>
     <% @presences.each do |presence| %>
       <tr>
-        <td><%= presence.checkin.strftime("%A, %e %B %Y - %H:%M") %></td>
-        <td><%= presence.checkout.strftime("%A, %e %B %Y - %H:%M") %></td>
+        <td><%= presence.checkin.strftime("%A, %e %B %Y - %H:%M")  rescue presence.checkin %></td>
+        <td><%= presence.checkout.strftime("%A, %e %B %Y - %H:%M") rescue presence.checkout %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<center>
+<%= paginate @presences %>
+</center>
 
 <br>

@@ -7,55 +7,52 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Report</h1>
-            <a href="/reports/new" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Create Report</a>
+            <h1 class="h3 mb-0 text-gray-800">My Reports</h1>
+            <a href="/reports/new" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="create-report"><i class="fas fa-download fa-sm text-white-50"></i> Create Report</a>
           </div>
 
+      <div style="width: 100%;">
+        <div class="card shadow mb-4">
+          <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">Reports</h6>
+          </div>
+          <div class="card-body">
+            <div class="chart-area">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Subject</th>
+                    <th>Content</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @reports.each do |report| %>
+                    <tr>
+                      <td><%= report.subject %></td>
+                      <td><%= truncate(strip_tags(report.rich_text_content.to_s), length: 30) %></td>
+                      <td><%= link_to 'Show', report %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+  <%= paginate @reports %>
+              <canvas id="myAreaChart">
+              </canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
           <!-- Content Row -->
 
-          <p id="notice"><%= notice %></p>
-          <table>
-            <thead>
-              <tr>
-                <th>Subject</th>
-                <th>Content</th>
-                <th colspan="3"></th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <% @reports.each do |report| %>
-                <tr>
-                  <td><%= report.subject %></td>
-                  <td><%= truncate(strip_tags(report.content), length: 30) %></td>
-                  <td><%= link_to 'Show', report %></td>
-
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
+          <!-- <p id="notice"><%= notice %></p> -->
 
           <br>
-
-          <!-- Content Row -->
-
-
         </div>
-        <!-- /.container-fluid -->
-
       </div>
-      <!-- End of Main Content -->
-
-      <!-- Footer -->
-      <!-- End of Footer -->
-
     </div>
-    <!-- End of Content Wrapper -->
-
   </div>
-  <!-- End of Page Wrapper -->
-
-  <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>

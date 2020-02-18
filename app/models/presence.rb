@@ -12,4 +12,6 @@
 
 class Presence < ApplicationRecord
   belongs_to :student
+
+  paginates_per 7
 end

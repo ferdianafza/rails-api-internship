@@ -6,7 +6,7 @@
 </p>
 
 <p>
-  <strong>Content:</strong>
-  <%= strip_tags(@report.content) %>
+  <strong>Content:</strong><br />
+  <%= strip_tags(@report.rich_text_content.to_s) %>
 </p>
 <%= link_to 'Back', reports_path %>

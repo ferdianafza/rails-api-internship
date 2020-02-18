@@ -4,7 +4,7 @@ class ReportsController < ApplicationController
     before_action :set_student, only: [:index, :new, :show]
 
   def index
-    @reports = current_student.reports
+    @reports = current_student.reports.order(created_at: :desc).page params[:page]
   end
 
   def new

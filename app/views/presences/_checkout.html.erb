@@ -1,10 +1,10 @@
-<%= form_with(model: presence, local: true) do |form| %>
-  <% if presence.errors.any? %>
+<%= form_for @presence_to_update , :url => { :action => "update" , :controller=>"presences" } do |form| %>
+  <% if @presence_to_update.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(presence.errors.count, "error") %> prohibited this presence from being saved:</h2>
+      <h2><%= pluralize(@presence_to_update.errors.count, "error") %> prohibited this presence from being saved:</h2>
 
       <ul>
-        <% presence.errors.full_messages.each do |message| %>
+        <% @presence_to_update.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
@@ -16,7 +16,5 @@
     <%= form.datetime_select :checkout %>
   </div>
 
-  <div class="actions">
-    <%= form.submit :Checkout %>
-  </div>
+    <%= button_tag 'Checkout', class: "checkout-button d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm" %>
 <% end %>

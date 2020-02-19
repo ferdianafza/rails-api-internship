@@ -7,14 +7,14 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">My Reports</h1>
+            <h1 class="h3 mb-0 text-gray-800"></h1>
             <a href="/reports/new" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="create-report"><i class="fas fa-download fa-sm text-white-50"></i> Create Report</a>
           </div>
 
       <div style="width: 100%;">
         <div class="card shadow mb-4">
           <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Reports</h6>
+            <h6 class="m-0 font-weight-bold text-primary">My Reports</h6>
           </div>
           <div class="card-body">
             <div class="chart-area">
@@ -29,14 +29,14 @@
                 <tbody>
                   <% @reports.each do |report| %>
                     <tr>
-                      <td><%= report.subject %></td>
+                      <td><%= truncate (report.subject), length: 20 %></td>
                       <td><%= truncate(strip_tags(report.rich_text_content.to_s), length: 30) %></td>
                       <td><%= link_to 'Show', report %></td>
                     </tr>
                   <% end %>
                 </tbody>
               </table>
-  <%= paginate @reports %>
+              <%= paginate @reports %>
               <canvas id="myAreaChart">
               </canvas>
             </div>

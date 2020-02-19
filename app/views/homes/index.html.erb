@@ -1,41 +1,44 @@
 <div class="container-fluid">
-
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
       <% if @student_last_presences_checkin != Date.today %>
         <div class="partial-form">
-          <%= render partial: 'checkin' %>
+          <%= render partial: '/presences/checkin' %>
         </div>
       <% elsif @student_last_presences_checkout == nil %>
         <div class="partial-form">
-          <%= render partial: 'checkout' %>
+          <%= render partial: '/presences/checkout' %>
         </div>
       <% else @student_last_presences_checkout != nil %>
       <% end %>
     <a href="/reports/new" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="color: white; text-decoration: none;"> Create Report</a>
   </div>
 
+  <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+
   <div class="row">
     <div class="row">
       <div class="col-xl-8 col-lg-7">
         <div class="card shadow mb-4">
           <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Reports</h6>
+            <h6 class="m-0 font-weight-bold text-primary">My Reports</h6>
           </div>
           <div class="card-body">
             <div class="chart-area">
               <table>
                 <thead>
                   <tr>
-                    <th>Subject</th>
-                    <th>Content</th>
-                    <th colspan="3"></th>
+                    <th class="th-report" >Subject</th>
+                    <th class="th-report" >Content</th>
+                    <th class="th-report" ></th>
                   </tr>
                 </thead>
                 <tbody>
                   <% @reports.each do |report| %>
                     <tr>
-                      <td><%= report.subject %></td>
+                      <td><%= truncate (report.subject), length: 30 %></td>
                       <td><%= truncate(strip_tags(report.rich_text_content.to_s), length: 30) %></td>
                       <td><%= link_to 'Show', report %></td>
                     </tr>
@@ -60,8 +63,8 @@
                   <table>
                     <thead>
                       <tr>
-                        <th>Checkin</th>
-                        <th>Checkout</th>
+                        <th class="th-report">Checkin</th>
+                        <th class="th-report">Checkout</th>
                       </tr>
                     </thead>
 
@@ -82,6 +85,7 @@
             <div class="col-lg-6 mb-4">
             </div>
           </div>
+
         </div>
       </div>
     </div>

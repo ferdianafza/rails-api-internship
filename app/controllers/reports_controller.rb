@@ -1,7 +1,6 @@
 class ReportsController < ApplicationController
     before_action :authenticate_student!, except: [:show]
     before_action :set_report, only: [:show, :edit, :update]
-    before_action :set_student, only: [:index, :new, :show]
 
   def index
     @reports = current_student.reports.order(created_at: :desc).page params[:page]
@@ -9,6 +8,9 @@ class ReportsController < ApplicationController
 
   def new
     @report = current_student.reports.new
+  end
+
+  def show
   end
 
   def create
@@ -26,10 +28,6 @@ class ReportsController < ApplicationController
   end
 
   private
-
-    def set_student
-      @student = current_student
-    end
 
     def set_report
       @report = Report.find(params[:id])

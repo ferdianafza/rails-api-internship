@@ -11045,3 +11045,12 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
 }
+
+.alert {
+  background-color: blue;
+  color: white;
+}
+.th-report {
+  background-color: #4e73df;
+  color: white;
+}

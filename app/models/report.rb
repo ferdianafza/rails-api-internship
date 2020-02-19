@@ -14,7 +14,6 @@ class Report < ApplicationRecord
   belongs_to :student
   has_rich_text :content
   has_one_attached :document
-  paginates_per 6
 
   validates :content , :subject, presence: true
 end

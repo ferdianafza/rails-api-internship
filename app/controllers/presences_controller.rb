@@ -20,8 +20,8 @@ class PresencesController < ApplicationController
 
     def update
       respond_to do |format|
-        if @presence.update(presence_checkout)
-          format.html { redirect_to @presence, notice: 'Checkout was successfully updated.' }
+        if @presence_to_update.update(presence_params)
+          format.html { redirect_to "/", notice: 'Goodbye, be careful.' }
           format.json { render :show, status: :ok, location: @presence }
         else
           format.html { render :edit }
@@ -38,7 +38,7 @@ class PresencesController < ApplicationController
 
           respond_to do |format|
             if @presence.save
-              format.html { redirect_to "/", notice: 'Checkin was successfully created.' }
+              format.html { redirect_to "/", notice: 'Welcome to 41 Studio, have a great day.' }
               format.json { render :show, status: :created, location: @presence }
             else
               format.html { render :new }
@@ -47,7 +47,7 @@ class PresencesController < ApplicationController
           end
         else
           respond_to do |format|
-          format.html { redirect_to "/presences", notice: 'Anda sudah Checkin Hari ini.' }
+          format.html { redirect_to "/presences", notice: 'You already checked in.' }
         end
       end
     end
@@ -67,7 +67,7 @@ class PresencesController < ApplicationController
     end
 
     def set_checkout
-       @presence = current_student.presences.last
+      @presence_to_update = current_student.presences.last
     end
 
     def presence_checkout

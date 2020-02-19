@@ -17,7 +17,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 
 gem 'devise'
-
+gem 'gmaps4rails'
 gem 'activeadmin'
 gem 'kaminari'
 # Use Redis adapter to run Action Cable in production
@@ -48,7 +48,7 @@ group :development do
   gem 'annotate', git: 'https://github.com/ctran/annotate_models.git'
 end
 
-group :production do 
+group :production do
   gem 'pg'
 end
 

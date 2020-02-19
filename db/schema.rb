@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_17_130209) do
+ActiveRecord::Schema.define(version: 2020_02_19_133107) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -121,6 +121,8 @@ ActiveRecord::Schema.define(version: 2020_02_17_130209) do
     t.integer "emergency_number"
     t.date "start_at"
     t.date "end_at"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["email"], name: "index_students_on_email", unique: true
     t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true
   end

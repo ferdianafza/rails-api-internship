@@ -13,6 +13,9 @@ require("chart")
 require("trix")
 require("@rails/actiontext")
 
+
+//= require gmaps/google
+
 import '../stylesheets/application'
 import './bootstrap_custom.js'
 import './sb-admin-2.min.js'

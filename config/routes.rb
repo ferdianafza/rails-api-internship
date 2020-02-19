@@ -137,23 +137,28 @@
 #                  rails_direct_uploads POST       /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
 
 Rails.application.routes.draw do
-  resources :presences
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  resources :reports
-  resources :majors
-  devise_for :students, :skip => :registerable, controllers: { sessions: 'students/sessions', registrations: "students/registrations", passwords: "students/passwords" }
+
+  devise_for :students, :skip => :registerable,
+                        controllers: { sessions: 'students/sessions', registrations: "students/registrations",
+                                        passwords: "students/passwords" }
   devise_scope :user do
     get 'sign_in', to: 'devise/sessions#new'
     get '/students/sign_out' => 'devise/sessions#destroy'
     get '/students/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
     put 'users' => 'devise/registrations#update', :as => 'user_registration'
-    # put "/students/registrations", :to => "devise/registrationss#update", :as => nil
   end
-  get 'homes/myprofile' => 'homes/myprofile'
-  post 'homes/update' => 'homes/update'
 
-  resources :homes
+  resources :reports, :except => [:edit, :update, :delete]
+  resources :presences, :except => [:delete]
+  resources :homes do
+    get 'myprofile', :on => :collection
+  end
+
+  get "/presences/update" => "/presences/update"
+  post "/presences/update" => "/presences/update"
+
   root to: 'homes#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

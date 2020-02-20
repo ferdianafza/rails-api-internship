@@ -34,6 +34,11 @@ class Student < ApplicationRecord
   has_many :presences
   has_one_attached :avatar
 
+  geocoded_by :address
+  reverse_geocoded_by :latitude, :longitude
+  after_validation :geocode
+  after_validation :reverse_geocode
+
   belongs_to :major
   belongs_to :province
   # Include default devise modules. Others available are:

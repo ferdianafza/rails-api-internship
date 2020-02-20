@@ -136,8 +136,9 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'sign_in', to: 'devise/sessions#new'
     get '/students/sign_out' => 'devise/sessions#destroy'
-    get '/students/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
+    get "/students/edit" => "devise/registrations#edit"
     put 'users' => 'devise/registrations#update', :as => 'user_registration'
+    get '/students/edit', to: "devise/sessions#edit"
   end
 
   resources :reports, :except => [:edit, :update, :delete]

@@ -1,12 +1,15 @@
-<p id="notice"><%= notice %></p>
+<div style="width: 100%;">
+  <div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+      <h6 class="m-0 font-weight-bold text-primary"><%= @report.subject %></h6>
+    </div>
 
-<p>
-  <strong>Subject:</strong>
-  <%= @report.subject %>
-</p>
+    <div class="card-body">
+      <div class="chart-area">
+        <p id="notice"><%= notice %></p>
+        <%= @report.content %>
+      </div>
+    </div>
 
-<p>
-  <strong>Content:</strong><br />
-  <%= strip_tags(@report.rich_text_content.to_s) %>
-</p>
-<%= link_to 'Back', reports_path %>
+  </div>
+</div>

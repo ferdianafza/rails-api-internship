@@ -33,8 +33,6 @@ class Student < ApplicationRecord
   has_many :reports
   has_many :presences
   has_one_attached :avatar
-  # geocoded_by :address
-  # after_validation :geocode
 
   belongs_to :major
   belongs_to :province
@@ -42,7 +40,7 @@ class Student < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable,  :recoverable, :rememberable, :validatable
 
-  validates :login, :email, presence: true
+  validates :email, presence: true
 
   def password_required?
 	 false

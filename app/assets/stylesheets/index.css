@@ -7378,6 +7378,24 @@ button.bg-dark:focus {
         background: green;
         background-color: blue;
       }
+ .report-create{
+  /*   background: transparent;*/
+     border: 1px solid #e8e8e8;
+   /*  display: block;*/
+      float: left;
+      background: blue;
+      background-color: blue;
+      color: black;
+      font-weight: 400;
+      font-size: 1.4em; //font size does not change
+      display: block;
+     /* padding: 0px 4px 0px 4px; //modification doesn't show..*/
+      text-decoration: none;
+      &:hover {
+        color: blue;
+        background: blue;
+      }
+  }
 
 .shadow-sm {
   /*box-shadow: 0 0.125rem 0.25rem 0 rgba(58, 59, 69, 0.2) !important;*/
@@ -11050,7 +11068,17 @@ body.sidebar-toggled footer.sticky-footer {
   background-color: blue;
   color: white;
 }
+
 .th-report {
   background-color: #4e73df;
   color: white;
+}
+
+#table-presence {
+  width: 1300px;
+  height: 800px;
+}
+#create-button {
+  color: white;
+  text-decoration: none;
 }

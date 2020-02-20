@@ -1392,3 +1392,7 @@ body{margin-top:20px;}
 .grey {
     color: #777!important
 }
+
+.map {
+    width: 100%;
+}

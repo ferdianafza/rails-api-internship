@@ -11,7 +11,7 @@
         </div>
       <% else @student_last_presences_checkout != nil %>
       <% end %>
-    <a href="/reports/new" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="color: white; text-decoration: none;"> Create Report</a>
+    <a href="/reports/new" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="create-button"> Create Report</a>
   </div>
 
   <% flash.each do |key, value| %>
@@ -52,7 +52,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-6 mb-6" style="width: 1000px; height: 800px;">
+        <div class="col-lg-6 mb-6" id="table-presence">
 
               <!-- Project Card Example -->
               <div class="card shadow mb-4">
@@ -71,8 +71,8 @@
                     <tbody>
                       <% @presences_students.each do |presence| %>
                         <tr>
-                          <td><%= presence.checkin %></td>
-                          <td><%= presence.checkout %></td>
+                          <td><%= presence.checkin.strftime("%A, %e %B %Y - %H:%M")  rescue presence.checkin  %></td>
+                          <td><%= presence.checkout.strftime("%A, %e %B %Y - %H:%M")  rescue presence.checkout  %></td>
                         </tr>
                       <% end %>
                     </tbody>

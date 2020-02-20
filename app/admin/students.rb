@@ -6,7 +6,7 @@ ActiveAdmin.register Student do
   #
   permit_params :email, :encrypted_password, :firstname, :lastname, :school, :phone, :nis,
     :address, :city, :province, :zipcode, :periode, :status, :major_id, :reset_password_token,
-    :reset_password_sent_at, :remember_created_at, :mothers_name, :fathers_name, :emergency_number,
+    :reset_password_sent_at, :remember_created_at, :mother_name, :father_name, :emergency_number,
     :avatar, :password, :password_confirmation, :start_at, :end_at, :province_id, :latitude, :longitude
   #
   # or
@@ -35,7 +35,7 @@ ActiveAdmin.register Student do
   end
 
   index as: :grid, default: true do |student|
-    link_to image_tag(student.avatar, width: "40%"), admin_student_path(student)
+    link_to image_tag(student.avatar, width: "40%"), admin_student_path(student)  if student.avatar.attached?
   end
 
   index as: :block do |student|
@@ -56,7 +56,7 @@ end
   show do
    attributes_table do
       row :avatar do |av|
-        image_tag av.avatar, width: "10%"
+        image_tag av.avatar, width: "10%" if av.avatar.attached?
       end
 
       row :email

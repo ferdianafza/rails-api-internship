@@ -15,6 +15,8 @@ ActiveAdmin.register Presence do
   #   permitted
   # end
 
+  actions :all, :except => [:new]
+
   filter :student
   filter :checkin
   filter :checkout
@@ -27,5 +29,5 @@ ActiveAdmin.register Presence do
     column :student
     actions
   end
-  
+
 end

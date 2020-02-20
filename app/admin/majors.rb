@@ -17,11 +17,13 @@ ActiveAdmin.register Major do
 
  filter :name, filters: [:contains]
 
+ config.sort_order = 'name_asc'
+
     form do |f|
     f.inputs :multipart => true do
       f.input :name
     end
     f.actions
   end
-  
+
 end

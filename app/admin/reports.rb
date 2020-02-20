@@ -15,6 +15,8 @@ ActiveAdmin.register Report do
   #   permitted
   # end
 
+   actions :all, :except => [:new]
+
   filter :student
   filter :created_at
 
@@ -40,5 +42,5 @@ ActiveAdmin.register Report do
       row :created_at
     end
   end
-  
+
 end

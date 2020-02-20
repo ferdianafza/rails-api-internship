@@ -17,9 +17,12 @@ ActiveAdmin.register Student do
   #   permitted
   # end
 
+  config.sort_order = 'email_asc'
+
   scope :all, default: true
   scope("Active") { |scope| scope.where(status: true) }
   scope("Inactive") { |scope| scope.where(status: false) }
+  # default_scope :order("CASE WHEN position = 0 THEN 0 ELSE 1 END DESC").order("position ASC").order("created_at DESC")
 
   filter :email, filters: [:contains]
   filter :firstname, filters: [:contains]

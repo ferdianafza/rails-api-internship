@@ -6,6 +6,7 @@ ActiveAdmin.setup do |config|
   #
   config.site_title = "Internship"
 
+
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
   #
@@ -236,7 +237,7 @@ ActiveAdmin.setup do |config|
     #     admin.add_logout_button_to_menu menu
     #   end
     # end
-  
+
   # If you wanted to add a static menu item to the default menu provided:
   #
     # config.namespace :admin do |admin|
@@ -326,3 +327,5 @@ ActiveAdmin.setup do |config|
   #
   # config.order_clause = MyOrderClause
 end
+
+

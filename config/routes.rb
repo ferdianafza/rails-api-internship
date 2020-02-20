@@ -130,8 +130,8 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  devise_for :students, :skip => :registerable,
-                        controllers: { sessions: 'students/sessions', registrations: "students/registrations",
+  devise_for :students, :skip => [:registerable, :registrations],
+                        controllers: { sessions: 'students/sessions',
                                         passwords: "students/passwords" }
   devise_scope :user do
     get 'sign_in', to: 'devise/sessions#new'

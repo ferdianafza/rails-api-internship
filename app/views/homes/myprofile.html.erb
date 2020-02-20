@@ -19,7 +19,7 @@
             <span class="bigger-110 full-name"><%= current_student.firstname %><%= current_student.lastname %></span>
           </a>
 
-          <a href="#" class="btn btn-sm btn-block btn-primary">
+          <a href="mailto:#{current_student.email}" class="btn btn-sm btn-block btn-primary">
             <i class="ace-icon fa fa-envelope-o bigger-110 email"></i>
             <span class="bigger-110 email"><%= current_student.email %></span>
           </a>
@@ -124,4 +124,4 @@
 
 
 
-<%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{current_student.latitude},#{current_student.longitude}&markers=#{current_student.latitude},#{current_student.longitude}&zoom=7&size=640x400&key=AIzaSyCQf-Ijz45IisL1t1wZ-Ys2anK0h0jCC18", class: "map"%>
+<%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{current_student.latitude},#{current_student.longitude}&markers=#{current_student.latitude},#{current_student.longitude}&zoom=15&size=640x400&key=AIzaSyCQf-Ijz45IisL1t1wZ-Ys2anK0h0jCC18" %>

@@ -11103,3 +11103,7 @@ body.sidebar-toggled footer.sticky-footer {
 .table-in-index {
   width: 1080px;
 }
+
+.nav-link {
+  text-decoration: none;
+}

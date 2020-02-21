@@ -16,3 +16,12 @@
  @import "font-awesome";
  @import "./actiontext.scss";
  */
+
+
+.nav-link {
+  text-decoration: none;
+}
+
+.nav-link.collapsed{
+  text-decoration: none;
+}

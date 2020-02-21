@@ -9399,7 +9399,7 @@ button.bg-dark:focus {
   text-transform: lowercase !important;
 }
 .dropdown:hover{
-  background-color: purple;
+  /*background-color: red;*/
 }
 
 .text-uppercase, .dropdown .dropdown-menu .dropdown-header, .sidebar .sidebar-heading {
@@ -11094,4 +11094,12 @@ body.sidebar-toggled footer.sticky-footer {
 #create-button {
   color: white;
   text-decoration: none;
+}
+
+#userDropdown:hover{
+  background-color: #d6d3cb;
+}
+
+.table-in-index {
+  width: 1080px;
 }

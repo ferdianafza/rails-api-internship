@@ -31,9 +31,9 @@ ActiveAdmin.register Student do
   index do
     selectable_column
     id_column
-    column :email
     column :firstname
     column :lastname
+    column :email
     actions
   end
 
@@ -62,16 +62,17 @@ end
         image_tag av.avatar, width: "10%" if av.avatar.attached?
       end
 
+      row :firstname
+      row :lastname
       row :email
       row :nis
-      row :firstnames
-      row :lastname
-      row :status
-      row :school
-      row :major
       row :mother_name
       row :father_name
       row :phone
+
+      row :school
+      row :major
+      row :status
       row :zipcode
       row :address
       row :city

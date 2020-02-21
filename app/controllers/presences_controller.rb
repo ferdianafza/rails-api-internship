@@ -75,3 +75,4 @@ class PresencesController < ApplicationController
     end
 
 end
+

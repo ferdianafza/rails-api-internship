@@ -64,7 +64,7 @@ end
 
       row :email
       row :nis
-      row :firstname
+      row :firstnames
       row :lastname
       row :status
       row :school
@@ -101,26 +101,30 @@ end
 
   form do |f|
     f.inputs :multipart => true do
-      f.input :nis
+      f.input :firstname
+      f.input :lastname
       f.input :email
       f.input :password
       f.input :password_confirmation
-      f.input :firstname
-      f.input :lastname
-      f.input :phone
-      f.input :status, :as => :boolean
-      f.input :major
-      f.input :avatar, :as => :file
+
+
       f.input :school
+      f.input :nis
+      f.input :major
+      f.input :status, :as => :boolean
+
+      f.input :avatar, :as => :file
+      f.input :phone
+      f.input :mother_name
+      f.input :father_name
+      f.input :emergency_number
+
       f.input :address
       f.input :latitude
       f.input :longitude
       f.input :city
       f.input :province
       f.input :zipcode
-      f.input :mother_name
-      f.input :father_name
-      f.input :emergency_number
       f.input :start_at
       f.input :end_at
     end

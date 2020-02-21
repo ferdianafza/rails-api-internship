@@ -107,7 +107,7 @@
                   <span class="mr-2 d-none d-lg-inline text-gray-600 small">
 
                     <%if student_signed_in?%>
-                      <%= current_student.email %>
+                      <div class="current-student-email"><%= current_student.email %></div>
                     <% else %>
                       account
                     <% end %>

@@ -7397,6 +7397,16 @@ button.bg-dark:focus {
       }
   }
 
+.current-student-email {
+  color: black;
+}
+
+
+
+.nav-link:hover {
+  background-color: #79bdb7;
+}
+
 .shadow-sm {
   /*box-shadow: 0 0.125rem 0.25rem 0 rgba(58, 59, 69, 0.2) !important;*/
   color: white;
@@ -9387,6 +9397,9 @@ button.bg-dark:focus {
 
 .text-lowercase {
   text-transform: lowercase !important;
+}
+.dropdown:hover{
+  background-color: purple;
 }
 
 .text-uppercase, .dropdown .dropdown-menu .dropdown-header, .sidebar .sidebar-heading {

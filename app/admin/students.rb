@@ -59,7 +59,7 @@ end
   show do
    attributes_table do
       row :avatar do |av|
-        image_tag av.avatar, width: "150px" if av.avatar.attached?
+        image_tag url_for(av.avatar), width: "150px" if av.avatar.attached?
       end
 
       row :firstname
@@ -114,7 +114,10 @@ end
       f.input :major
       f.input :status, :as => :boolean
 
-      f.input :avatar, :as => :file
+      f.input :avatar, :as => :file, :hint => f.object.avatar.attached?\
+                                              ? image_tag(f.object.avatar, width: "100px")
+                                              : content_tag(:span, "No avatar yet")
+      f.input :avatar_attachment, :as => :hidden
       f.input :phone
       f.input :mother_name
       f.input :father_name

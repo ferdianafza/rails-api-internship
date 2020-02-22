@@ -43,7 +43,7 @@ class Student < ApplicationRecord
 
   validates :email, :firstname, :lastname, :school, :nis, :major, :status,
             :phone, :mother_name, :father_name, :emergency_number, :address,
-            :latitude, :longitude, :city, :province, :zipcode, :start_at, :end_at, presence: true
+            :latitude, :longitude, :city, :province, :zipcode, :start_date, :end_date, presence: true
 
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i } 
   validates :phone, :emergency_number, format: { with: /\+?([ -]?\d+)+|\(\d+\)([ -]\d+)/ } 

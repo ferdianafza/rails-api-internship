@@ -7,7 +7,7 @@ ActiveAdmin.register Student do
   permit_params :email, :encrypted_password, :firstname, :lastname, :school, :phone, :nis,
     :address, :city, :province, :zipcode, :periode, :status, :major_id, :reset_password_token,
     :reset_password_sent_at, :remember_created_at, :mother_name, :father_name, :emergency_number,
-    :avatar, :password, :password_confirmation, :start_at, :end_at, :province_id, :latitude, :longitude
+    :avatar, :password, :password_confirmation, :start_date, :end_date, :province_id, :latitude, :longitude
   #
   # or
   #

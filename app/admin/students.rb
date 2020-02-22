@@ -94,7 +94,7 @@ ActiveAdmin.register Student do
       f.input :zipcode
       f.input :latitude
       f.input :longitude
-      f.latlng height: 500, api_key_env: 'AIzaSyCQf-Ijz45IisL1t1wZ-Ys2anK0h0jCC18'
+      f.latlng map: :google, height: 500, api_key: ENV['GOOGLE_MAPS_API_KEY']
       f.input :city
       f.input :password
       f.input :password_confirmation

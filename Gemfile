@@ -69,3 +69,5 @@ gem "font-awesome-rails", "~> 4.7"
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
 gem "cloudinary", "~> 1.13"
+
+gem "omniauth", "~> 1.9"

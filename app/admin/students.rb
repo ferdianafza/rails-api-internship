@@ -102,33 +102,30 @@ end
 
   form do |f|
     f.inputs :multipart => true do
-      f.input :firstname
-      f.input :lastname
-      f.input :email
-      f.input :password
-      f.input :password_confirmation
-
-
-      f.input :school
-      f.input :nis
-      f.input :major
       f.input :status, :as => :boolean
 
       f.input :avatar, :as => :file, :hint => f.object.avatar.attached?\
                                               ? image_tag(f.object.avatar, width: "100px")
                                               : content_tag(:span, "No avatar yet")
       f.input :avatar_attachment, :as => :hidden
+      f.input :firstname
+      f.input :lastname
+      f.input :email
+      f.input :school
+      f.input :nis
       f.input :phone
       f.input :mother_name
       f.input :father_name
       f.input :emergency_number
-
       f.input :address
+      f.input :zipcode
       f.input :latitude
       f.input :longitude
       f.input :city
+      f.input :password
+      f.input :password_confirmation
       f.input :province
-      f.input :zipcode
+      f.input :major
       f.input :start_at
       f.input :end_at
     end

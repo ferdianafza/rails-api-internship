@@ -30,25 +30,30 @@
 #
 
 class Student < ApplicationRecord
-  has_many :reports
-  has_many :presences
-  has_one_attached :avatar
-
-  geocoded_by :address
-  reverse_geocoded_by :latitude, :longitude
-  after_validation :geocode
-  after_validation :reverse_geocode
-
-  belongs_to :major
-  belongs_to :province
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable,  :recoverable,  :omniauthable,  :rememberable, :validatable
 
-  validates :email, presence: true
+  has_many :reports
+  has_many :presences
+  has_one_attached :avatar
+
+  belongs_to :major
+  belongs_to :province
+
+  validates :email, :firstname, :lastname, :school, :nis, :major, :status,
+            :phone, :mother_name, :father_name, :emergency_number, :address,
+            :latitude, :longitude, :city, :province, :zipcode, :start_at, :end_at, presence: true
+
+  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i } 
+  validates :phone, :emergency_number, format: { with: /\+?([ -]?\d+)+|\(\d+\)([ -]\d+)/ } 
+
+  validates :nis, length: { minimum: 5, maximum: 15 }
+  validates :zipcode, length: { minimum: 5, maximum: 7 }
+  validates :latitude, :longitude, :zipcode, numericality: true
 
   def password_required?
-	 false
+    false
   end
 
   def full_name

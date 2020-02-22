@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_19_133107) do
+ActiveRecord::Schema.define(version: 2020_02_22_071820) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -118,9 +118,9 @@ ActiveRecord::Schema.define(version: 2020_02_19_133107) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "mother_name"
     t.string "father_name"
-    t.integer "emergency_number"
-    t.date "start_at"
-    t.date "end_at"
+    t.string "emergency_number"
+    t.date "start_date"
+    t.date "end_date"
     t.float "latitude"
     t.float "longitude"
     t.index ["email"], name: "index_students_on_email", unique: true

@@ -59,7 +59,7 @@ end
   show do
    attributes_table do
       row :avatar do |av|
-        image_tag av.avatar, width: "10%" if av.avatar.attached?
+        image_tag av.avatar, width: "150px" if av.avatar.attached?
       end
 
       row :firstname

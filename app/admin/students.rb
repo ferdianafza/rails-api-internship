@@ -22,8 +22,7 @@ ActiveAdmin.register Student do
   scope :all, default: true
   scope("Active") { |scope| scope.where(status: true) }
   scope("Inactive") { |scope| scope.where(status: false) }
-  # default_scope :order("CASE WHEN position = 0 THEN 0 ELSE 1 END DESC").order("position ASC").order("created_at DESC")
-
+  
   filter :email, filters: [:contains]
   filter :firstname, filters: [:contains]
   filter :lastname, filters: [:contains]
@@ -43,15 +42,14 @@ ActiveAdmin.register Student do
 
   index as: :block do |student|
     div for: student do
-      # resource_selection_cell student
       h2  auto_link     student.firstname
       div simple_format student.lastname
     end
   end
 
   index as: :blog do
-  title :firstname # Calls #my_title on each resource
-  body  :lastname  # Calls #my_body on each resource
+  title :firstname
+  body  :lastname 
 end
 
 
@@ -69,7 +67,6 @@ end
       row :mother_name
       row :father_name
       row :phone
-
       row :school
       row :major
       row :status
@@ -78,26 +75,10 @@ end
       row :city
       row :province
       row :emergency_number
-      row :start_at
-      row :end_at
+      row :start_date
+      row :end_date
 
     end
-
-  #  columns do
-  # column do
-  #   span "Column #1"
-  #   attributes_table do
-  #   row :email
-  # end
-  # end
-
-  # column do
-  #   span "Column #2"
-  #   attributes_table do
-  #   row :firstname
-  # end
-  # end
-
   end
 
   form do |f|
@@ -126,8 +107,8 @@ end
       f.input :password_confirmation
       f.input :province
       f.input :major
-      f.input :start_at
-      f.input :end_at
+      f.input :start_date
+      f.input :end_date
     end
     f.actions
   end

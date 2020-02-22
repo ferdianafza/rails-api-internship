@@ -18,6 +18,10 @@ class HomesController < ApplicationController
     def myprofile
     end
 
+    def friendlist
+      @friend_lists = Student.all
+    end
+
     # def update
     #   respond_to do |format|
     #     if @presence_to_update.update(presence_params)

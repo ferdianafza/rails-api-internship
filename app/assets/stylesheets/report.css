@@ -3,3 +3,8 @@
     color: white;
     text-decoration: none;
   }
+
+a.page-link {
+  /*background: red;*/
+  color: red;
+}

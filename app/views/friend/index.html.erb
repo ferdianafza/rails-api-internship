@@ -1,0 +1,45 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th class="th-report">email</th>
+      <th class="th-report">Full name</th>
+      <th class="th-report">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @friend_lists.each do |friend| %>
+      <tr>
+        <td><%=  friend.email %></td>
+        <td><%= friend.firstname %> <%= friend.lastname%></td>
+        <td><%= link_to 'Show', "/friend/show?id=#{friend.id}" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="container">
+  <div class="row row-cols-4">
+<% @friend_lists.each_with_index do |friend, i| %>
+  <% if i >= 10 %>
+    <% temp = "card_#{i-9}" %>
+  <% else %>
+    <% temp = "card_#{i+1}" %>
+  <% end %>
+<div class="card col <%= temp %>" id="card">
+  <% if friend.avatar.attached? %>
+       <%= link_to image_tag(friend.avatar.variant(resize:"227x130")), friend, :class => 'thumbnail' %>
+      <% end %>
+
+  <div class="card-body">
+    <h4 class="card-title"><%= link_to truncate(friend.name), friend, length: 15 %></h4>
+      <p class="card-text" style="width: 200px; height: 60px;"><%= truncate(strip_tags(friend.rich_text_content.to_s), length: 30) %></p>
+  </div>
+</div>
+&nbsp; &nbsp;
+    <% if i == 4%>
+     <div class="w-100 d-none d-md-block"></div>
+     <br>
+     <% end %>
+<% end %>
+</div>
+</div>

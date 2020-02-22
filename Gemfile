@@ -71,3 +71,5 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 gem "cloudinary", "~> 1.13"
 
 gem "omniauth", "~> 1.9"
+
+gem "activeadmin_latlng", "~> 1.5"

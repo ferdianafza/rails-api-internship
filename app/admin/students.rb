@@ -22,7 +22,7 @@ ActiveAdmin.register Student do
   scope :all, default: true
   scope("Active") { |scope| scope.where(status: true) }
   scope("Inactive") { |scope| scope.where(status: false) }
-  
+
   filter :email, filters: [:contains]
   filter :firstname, filters: [:contains]
   filter :lastname, filters: [:contains]
@@ -36,48 +36,40 @@ ActiveAdmin.register Student do
     actions
   end
 
-  index as: :grid, default: true do |student|
+  index as: :grid do |student|
     link_to image_tag(student.avatar, width: "40%"), admin_student_path(student)  if student.avatar.attached?
   end
 
-  index as: :block do |student|
-    div for: student do
-      h2  auto_link     student.firstname
-      div simple_format student.lastname
-    end
-  end
-
-  index as: :blog do
-  title :firstname
-  body  :lastname 
-end
-
-
-
   show do
-   attributes_table do
-      row :avatar do |av|
-        image_tag url_for(av.avatar), width: "150px" if av.avatar.attached?
+    panel "Personal" do
+      attributes_table_for student do
+        row :avatar do |av|
+          image_tag url_for(av.avatar), width: "150px" if av.avatar.attached?
+        end
+
+        row :firstname
+        row :lastname
+        row :email
+        row :mother_name
+        row :father_name
+        row "Phone Number", :phone
+        row :emergency_number
+        row :zipcode
+        row :address
+        row :city
+        row :province
       end
+    end
 
-      row :firstname
-      row :lastname
-      row :email
-      row :nis
-      row :mother_name
-      row :father_name
-      row :phone
-      row :school
-      row :major
-      row :status
-      row :zipcode
-      row :address
-      row :city
-      row :province
-      row :emergency_number
-      row :start_date
-      row :end_date
-
+    panel "School", only: :show do
+      attributes_table_for student do
+        row "Student ID", :nis
+        row :school
+        row :major
+        row :start_date
+        row :end_date
+        row "Active", :status
+      end
     end
   end
 
@@ -102,6 +94,7 @@ end
       f.input :zipcode
       f.input :latitude
       f.input :longitude
+      f.latlng height: 500, api_key_env: 'AIzaSyCQf-Ijz45IisL1t1wZ-Ys2anK0h0jCC18'
       f.input :city
       f.input :password
       f.input :password_confirmation

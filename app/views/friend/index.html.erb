@@ -1,0 +1,19 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th class="th-report">email</th>
+      <th class="th-report">Full name</th>
+      <th class="th-report">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @friend_lists.each do |friend| %>
+      <tr>
+        <td><%=  friend.email %></td>
+        <td><%= friend.firstname %> <%= friend.lastname%></td>
+        <td><%= link_to 'Show', "/friend/show?id=#{friend.id}" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

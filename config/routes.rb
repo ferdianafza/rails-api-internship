@@ -148,6 +148,10 @@ Rails.application.routes.draw do
     get 'myprofile', :on => :collection
   end
 
+  get "/friend/index" => "/friend/index"
+  get "/friend/show" => "/friend/show"
+
+
   get "/presences/update" => "/presences/update"
   post "/presences/update" => "/presences/update"
 

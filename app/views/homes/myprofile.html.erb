@@ -11,6 +11,8 @@
           <span class="profile-picture">
             <% if current_student.avatar.attached? %>
                 <%= image_tag url_for(current_student.avatar), class: "editable img-responsive"%>
+            <% else %>
+                <img src="<%= asset_path('avatar-default2.jpeg') %>" class="img-profile rounded-circle" >
             <% end %>
           </span>
         </center>

@@ -69,7 +69,7 @@
                     <tr>
                       <td><%= truncate (report.subject), length: 30 %></td>
                       <td><%= truncate(strip_tags(report.rich_text_content.to_s), length: 30) %></td>
-                      <td><%= link_to 'Show', report %></td>
+                      <td><%= link_to 'Show', report, class:"badge badge-primary", id: "badge-report-index" %></td>
                     </tr>
                   <% end %>
                 </tbody>

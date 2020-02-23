@@ -121,6 +121,8 @@
                   <%if student_signed_in?%>
                     <% if current_student.avatar.attached? %>
                         <%= image_tag url_for(current_student.avatar), class: "img-profile rounded-circle" %>
+                    <% else %>
+                        <img src="<%= asset_path('avatar-default2.jpeg') %>" class="img-profile rounded-circle" >
                     <% end %>
                   <% end %>
 

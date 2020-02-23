@@ -11,7 +11,7 @@
       <tr>
         <td><%=  friend.email %></td>
         <td><%= friend.firstname %> <%= friend.lastname%></td>
-        <td><%= link_to 'Show', "/friend/show?id=#{friend.id}" %></td>
+        <td><%= link_to 'Show', "/friend/show?id=#{friend.id}", class:"badge badge-primary", id: "badge-friend-index" %></td>
       </tr>
     <% end %>
   </tbody>

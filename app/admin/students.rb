@@ -49,7 +49,7 @@ ActiveAdmin.register Student do
           if student.avatar.attached?
             image_tag url_for(student.avatar), width: "150px"
           else
-            image_tag "avatar-default2.jpeg", width: "150px"
+            image_tag "avatar.png", width: "150px"
           end
         end
 

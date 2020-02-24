@@ -110,8 +110,8 @@ ActiveAdmin.register Student do
       f.input :password_confirmation
       f.input :province
       f.input :major
-      f.input :start_date
-      f.input :end_date
+      f.input :start_date, start_year: Time.now.year - 1, end_year: Time.now.year + 1
+      f.input :end_date, start_year: Time.now.year - 1, end_year: Time.now.year + 1
     end
     f.actions
   end

@@ -10,9 +10,9 @@ AdminUser.delete_all
 Province.delete_all
 Major.delete_all
 Student.delete_all
+Presence.delete_all
 
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
-
 
 majors = %w(Rekayasa\ Perangkat\ Lunak\ (RPL) Multimedia Teknik\ Komputer\ Jaringan\ (TKJ))
 
@@ -38,17 +38,25 @@ data = {
         school: Faker::Company.name,
         address: Faker::Address.street_address,
         city: Faker::Address.city,
-        zipcode: Faker::Address.zip,
+        zipcode: Faker::Address.zip[0..4],
         father_name: Faker::Name.name,
         mother_name: Faker::Name.name,
         major_id: Major.pluck(:id).sample,
-        province_id: Province.pluck(:id).sample
+        province_id: Province.pluck(:id).sample,
+        latitude: 1.0,
+        longitude: 1.0,
+        emergency_number: 1.0,
+        start_date: 1.month.ago,
+        end_date: 3.weeks.ago
         }
 
 student = Student.new(data)
 student.avatar.attach(io: File.open("#{Rails.root}/app/assets/images/avatar.png"), filename: 'avatar.png')
 student.save!
 
-Presence.create!(checkin: Faker::Time.between(from: DateTime.yesterday, to: DateTime.now, format: :default),
-                checkout: Faker::Time.between(from: DateTime.yesterday, to: DateTime.now, format: :default),
-                student_id: "#{student.id}")
+date = Time.zone.yesterday
+checkin = Time.zone.local(date.year, date.month, date.day, 8, 0, 0).in_time_zone
+checkout = Time.zone.local(date.year, date.month, date.day, 7, 0, 0).in_time_zone
+
+checkin_time = Presence.create!(checkin: checkin, student_id: "#{Student.first.id}")
+checkout_time = checkin_time.update_attribute(:checkout, checkout)

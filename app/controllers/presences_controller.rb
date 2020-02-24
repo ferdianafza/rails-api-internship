@@ -12,11 +12,9 @@ class PresencesController < ApplicationController
       @presence = current_student.presences.new
     end
 
-    def edit
-    end
+    def edit; end
 
-    def checkout
-    end
+    def checkout; end
 
     def update
       respond_to do |format|
@@ -31,48 +29,40 @@ class PresencesController < ApplicationController
     end
 
     def create
-      # student_last_presences_checkin = current_student.presences.last.checkin.to_date
-      # if student_last_presences_checkin != Date.today ||
-      if current_student.presences == [] || current_student.presences.last.checkin.to_date != Date.today
-          @presence = current_student.presences.new(presence_params)
+      @presence = current_student.presences.new(presence_params)
 
-          respond_to do |format|
-            if @presence.save
-              format.html { redirect_to "/", notice: 'Welcome to 41 Studio, have a great day.' }
-              format.json { render :show, status: :created, location: @presence }
-            else
-              format.html { render :new }
-              format.json { render json: @presence.errors, status: :unprocessable_entity }
-            end
-          end
+      respond_to do |format|
+        if @presence.save
+          format.html { redirect_to "/", notice: 'Welcome to 41studio, have a good work.' }
+          format.json { render :show, status: :created, location: @presence }
         else
-          respond_to do |format|
-          format.html { redirect_to "/presences", notice: 'You already checked in.' }
+          format.html { render :new }
+          format.json { render json: @presence.errors, status: :unprocessable_entity }
         end
       end
     end
 
     private
 
-    def set_student
-      @student = current_student
-    end
+      def set_student
+        @student = current_student
+      end
 
-    def set_presence
-      @presence = Presence.find(params[:id])
-    end
+      def set_presence
+        @presence = Presence.find(params[:id])
+      end
 
-    def presence_params
-      params.require(:presence).permit(:checkin, :checkout)
-    end
+      def presence_params
+        params.require(:presence).permit(:checkin, :checkout)
+      end
 
-    def set_checkout
-      @presence_to_update = current_student.presences.last
-    end
+      def set_checkout
+        @presence_to_update = current_student.presences.last
+      end
 
-    def presence_checkout
-      params.require(:presence).permit(:checkout)
-    end
+      def presence_checkout
+        params.require(:presence).permit(:checkout)
+      end
 
 end
 

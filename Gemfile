@@ -74,3 +74,7 @@ gem "cloudinary", "~> 1.13"
 gem "omniauth", "~> 1.9"
 
 gem "activeadmin_latlng", "~> 1.5"
+
+gem "slim-rails", "~> 3.2"
+
+gem "coffee-rails", "~> 5.0"

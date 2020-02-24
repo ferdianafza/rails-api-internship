@@ -13,5 +13,20 @@
 class Presence < ApplicationRecord
   belongs_to :student
 
-  paginates_per 7
+  validate :datetime_checkin
+  validate :datetime_checkout, on: :update
+
+  # TODO: Fixme
+  def datetime_checkin
+    if !self.student.presences.empty? && self.student.presences.last.checkin < Date.today
+      errors.add(:checkin, "is invalid")
+    end
+  end
+
+  # TODO: Fixme
+  def datetime_checkout
+    if checkout < checkin
+      errors.add(:checkout, "is invalid")
+    end
+  end
 end

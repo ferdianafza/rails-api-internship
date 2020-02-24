@@ -37,17 +37,17 @@ ActiveAdmin.register Student do
   end
 
   index as: :grid do |student|
-    link_to image_tag(student.avatar, width: "40%"), admin_student_path(student)  if student.avatar.attached?
+    link_to image_tag(student.avatar, width: "40px"), admin_student_path(student) if student.avatar.attached?
   end
 
   show do
     panel "Personal" do
       attributes_table_for student do
-        row :avatar do |av|
-          if av.avatar.attached?
-            image_tag url_for(av.avatar), width: "150px"
+        row :avatar do |student|
+          if student.avatar.attached?
+            image_tag url_for(student.avatar), width: "150px"
           else
-            image_tag("avatar-default2.jpeg")
+            image_tag "avatar-default2.jpeg", width: "150px"
           end
         end
 
@@ -56,8 +56,8 @@ ActiveAdmin.register Student do
         row :email
         row :mother_name
         row :father_name
-        row "Phone Number" do |r|
-              r.phone
+        row "Phone Number" do |student|
+              student.phone
             end
         row :emergency_number
         row :zipcode
@@ -69,15 +69,15 @@ ActiveAdmin.register Student do
 
     panel "School", only: :show do
       attributes_table_for student do
-        row "Student ID"  do |r|
-              r.nis
+        row "Student ID"  do |student|
+              student.nis
             end
         row :school
         row :major
         row :start_date
         row :end_date
-        row "Active" do |r|
-              r.status
+        row "Active" do |student|
+              student.status
             end
       end
     end
@@ -110,8 +110,8 @@ ActiveAdmin.register Student do
       f.input :password_confirmation
       f.input :province
       f.input :major
-      f.input :start_date, start_year: Time.now.year - 1, end_year: Time.now.year + 1
-      f.input :end_date, start_year: Time.now.year - 1, end_year: Time.now.year + 1
+      f.input :start_date, start_year: 1.year.ago, end_year: 1.year.from_now
+      f.input :end_date, start_year: 1.year.ago, end_year: 1.year.from_now
     end
     f.actions
   end

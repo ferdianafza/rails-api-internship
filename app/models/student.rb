@@ -35,8 +35,8 @@ class Student < ApplicationRecord
   devise :database_authenticatable,  :recoverable,  :omniauthable,  
           :rememberable, :validatable
 
-  has_many :reports
-  has_many :presences
+  has_many :reports, dependent: :destroy
+  has_many :presences, dependent: :destroy
   has_one_attached :avatar
 
   belongs_to :major

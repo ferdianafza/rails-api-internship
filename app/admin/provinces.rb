@@ -16,7 +16,6 @@ ActiveAdmin.register Province do
   # end
   filter :name, filters: [:contains]
 
-
   config.sort_order = 'name_asc'
 
   index do

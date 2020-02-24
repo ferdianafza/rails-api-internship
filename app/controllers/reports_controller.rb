@@ -10,8 +10,7 @@ class ReportsController < ApplicationController
     @report = current_student.reports.new
   end
 
-  def show
-  end
+  def show; end
 
   def create
     @report = current_student.reports.new(report_params)

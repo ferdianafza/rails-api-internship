@@ -124,6 +124,4 @@
   </div>
 </div>
 
-
-
-<%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@friend.latitude},#{@friend.longitude}&markers=#{@friend.latitude},#{@friend.longitude}&zoom=13&size=640x400&key=AIzaSyCQf-Ijz45IisL1t1wZ-Ys2anK0h0jCC18", class: "map" %>
+<%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@friend.latitude},#{@friend.longitude}&markers=#{@friend.latitude},#{@friend.longitude}&zoom=13&size=640x400&key=#{ENV['GOOGLE_MAPS_API_KEY']}", class: "map" %>

@@ -1,0 +1,21 @@
+p#notice = notice
+div style="width: 100%;"
+  .card.shadow.mb-4
+    div class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
+      h6.m-0.font-weight-bold.text-primary My Presences
+
+    .card-body
+      .chart-area
+        table.table.table-striped
+          thead
+            tr
+              th.th-report Checkin
+              th.th-report Checkout
+
+          tbody
+            - @presences.each do |presence|
+              tr
+                td = presence.checkin rescue presence.checkin
+                td = presence.checkout rescue presence.checkout
+
+        center = paginate @presences

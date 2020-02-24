@@ -33,7 +33,6 @@ ActiveAdmin.register Report do
     actions
   end
 
-
   show do
    attributes_table do
       row :subject

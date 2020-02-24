@@ -78,3 +78,5 @@ gem "activeadmin_latlng", "~> 1.5"
 gem "slim-rails", "~> 3.2"
 
 gem "coffee-rails", "~> 5.0"
+
+gem "active_storage_validations", "~> 0.8.7"

@@ -53,6 +53,8 @@ class Student < ApplicationRecord
   validates :zipcode, length: { minimum: 5, maximum: 7 }
   validates :latitude, :longitude, :zipcode, numericality: true
 
+  validates :avatar, attached: false, content_type: [:png, :jpg, :jpeg]
+
   def password_required?
     false
   end

@@ -11127,3 +11127,13 @@ body.sidebar-toggled footer.sticky-footer {
     margin-left: 200px;
   }
 }
+
+a.checkout-button {
+  color: white;
+  text-decoration: none;
+  }
+
+a.checkin-button {
+  color: white;
+  text-decoration: none;
+}

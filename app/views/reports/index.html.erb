@@ -31,7 +31,7 @@
                     <tr>
                       <td><%= truncate (report.subject), length: 20 %></td>
                       <td><%= truncate(strip_tags(report.rich_text_content.to_s), length: 30) %></td>
-                      <td><%= link_to 'Show', report %></td>
+                      <td><%= link_to 'Show', report, class:"badge badge-primary", id: "badge-report" %></td>
                     </tr>
                   <% end %>
                 </tbody>
@@ -58,7 +58,7 @@
   </a>
 
 
-      <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -67,11 +67,15 @@
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.
+        </div>
+
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
            <%= link_to "Logout", destroy_student_session_path, method: :delete, :class => 'btn btn-primary'  %>
         </div>
+
       </div>
     </div>
   </div>

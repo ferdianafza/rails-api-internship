@@ -44,7 +44,11 @@ ActiveAdmin.register Student do
     panel "Personal" do
       attributes_table_for student do
         row :avatar do |av|
-          image_tag url_for(av.avatar), width: "150px" if av.avatar.attached?
+          if av.avatar.attached?
+            image_tag url_for(av.avatar), width: "150px"
+          else
+            image_tag("avatar-default2.jpeg")
+          end
         end
 
         row :firstname
@@ -52,7 +56,9 @@ ActiveAdmin.register Student do
         row :email
         row :mother_name
         row :father_name
-        row "Phone Number", :phone
+        row "Phone Number" do |r|
+              r.phone
+            end
         row :emergency_number
         row :zipcode
         row :address
@@ -63,12 +69,16 @@ ActiveAdmin.register Student do
 
     panel "School", only: :show do
       attributes_table_for student do
-        row "Student ID", :nis
+        row "Student ID"  do |r|
+              r.nis
+            end
         row :school
         row :major
         row :start_date
         row :end_date
-        row "Active", :status
+        row "Active" do |r|
+              r.status
+            end
       end
     end
   end
@@ -100,8 +110,8 @@ ActiveAdmin.register Student do
       f.input :password_confirmation
       f.input :province
       f.input :major
-      f.input :start_date
-      f.input :end_date
+      f.input :start_date, start_year: Time.now.year - 1, end_year: Time.now.year + 1
+      f.input :end_date, start_year: Time.now.year - 1, end_year: Time.now.year + 1
     end
     f.actions
   end

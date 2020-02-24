@@ -11107,3 +11107,33 @@ body.sidebar-toggled footer.sticky-footer {
 .nav-link {
   text-decoration: none;
 }
+
+#badge-report-index {
+  color: white;
+  text-decoration: none;
+}
+
+@media screen and (max-width:480px){
+
+  #maincontent{
+    width: auto;
+    float: none;
+  }
+  #sidebar{
+    width: auto;
+    float: none;
+  }
+  .btn-success {
+    margin-left: 200px;
+  }
+}
+
+a.checkout-button {
+  color: white;
+  text-decoration: none;
+  }
+
+a.checkin-button {
+  color: white;
+  text-decoration: none;
+}

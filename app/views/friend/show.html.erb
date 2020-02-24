@@ -2,7 +2,7 @@
   <div class="card shadow">
 
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-      <h6 class="m-0 font-weight-bold text-primary">My Profile</h6>
+      <h6 class="m-0 font-weight-bold text-primary"><%= @friend.firstname %><%= @friend.lastname %> Profile</h6>
     </div>
     <div class="card-body">
       <div class="chart-area" style="height: 100%;">
@@ -11,6 +11,8 @@
           <span class="profile-picture">
             <% if @friend.avatar.attached? %>
                 <%= image_tag url_for(@friend.avatar), class: "editable img-responsive"%>
+            <% else %>
+                <img src="<%= asset_path('avatar-default2.jpeg') %>" class="img-profile rounded-circle" >
             <% end %>
           </span>
         </center>

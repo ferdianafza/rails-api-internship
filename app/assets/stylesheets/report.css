@@ -8,3 +8,8 @@ a.page-link {
   /*background: red;*/
   color: red;
 }
+
+#badge-report {
+  color: white;
+  text-decoration: none;
+}

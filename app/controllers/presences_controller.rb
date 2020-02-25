@@ -2,15 +2,15 @@ class PresencesController < ApplicationController
     before_action :authenticate_student!, only: [:new]
     before_action :authenticate_student!, except: [:show]
     before_action :set_checkout, only: [:show, :checkout, :update]
-    before_action :set_student, only: [:index, :new, :show]
+    before_action :set_student, only: [:index, :new]
 
     def index
       @presences = current_student.presences.order(created_at: :desc).page params[:page]
     end
 
-    def new
-      @presence = current_student.presences.new
-    end
+    # def new
+    #   @presence = current_student.presences.new
+    # end
 
     def edit; end
 

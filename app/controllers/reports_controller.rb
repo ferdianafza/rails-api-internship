@@ -4,6 +4,11 @@ class ReportsController < ApplicationController
 
   def index
     @reports = current_student.reports.order(created_at: :desc).page params[:page]
+    respond_to do |format|
+      format.html
+      format.csv { send_data @reports.to_csv }
+      format.xls  { send_data @reports.to_csv(col_sep: "\t") }
+    end
   end
 
   def new

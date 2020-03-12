@@ -56,7 +56,10 @@
       <div class="col-xl-8 col-lg-7">
         <div class="card shadow mb-4 table-in-index">
           <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">My Reports</h6>
+            <h6 class="m-0 font-weight-bold text-primary">My Reports 
+              <%= link_to "CSV", reports_path(format: "csv") %>
+              <%= link_to "Excel", reports_path(format: "xls") %>
+            </h6>
           </div>
           <div class="card-body">
             <div class="chart-area">
@@ -90,7 +93,10 @@
               <!-- Project Card Example -->
               <div class="card shadow mb-4 table-in-index">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">My Presences</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">My Presences 
+                    <%= link_to "CSV", presences_path(format: "csv") %>
+                    <%= link_to "Excel", presences_path(format: "xls") %>
+                    </h6>
                 </div>
                 <div class="card-body">
                   <table>

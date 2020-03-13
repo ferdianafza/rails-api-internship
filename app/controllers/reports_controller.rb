@@ -15,7 +15,16 @@ class ReportsController < ApplicationController
     @report = current_student.reports.new
   end
 
-  def show; end
+  def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = ReportPdf.new(@report)
+        send_data pdf.render, 
+            filename: "#{@report.subject}.pdf"
+      end
+    end
+  end
 
   def create
     @report = current_student.reports.new(report_params)

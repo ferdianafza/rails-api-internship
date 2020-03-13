@@ -1,0 +1,18 @@
+<div style="width: 100%;">
+	<div class="card shadow mb-4">
+		<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+			<h6 class="m-0 font-weight-bold text-primary">
+				<%= @report.subject %>
+				<%= link_to "PDF", report_path(format: "pdf") %>
+			</h6>
+				<%= @report.created_at.strftime("%A, %e %B %Y - %H:%M") %>
+		</div>
+
+		<div class="card-body">
+			<div class="chart-area">
+				<p id="notice"></p>
+				<%= @report.content %>
+			</div>
+		</div>
+	</div>
+</div>

@@ -7,8 +7,14 @@ class PresencesController < ApplicationController
     def index
       @presences = current_student.presences.order(created_at: :desc).page params[:page]
       respond_to do |format|
+        format.html
         format.csv { send_data @presences.to_csv }
         format.xls  { send_data @presences.to_csv(col_sep: "\t") }
+        format.pdf do
+        pdf = PresencesPdf.new(@presences)
+        send_data pdf.render, 
+            filename: "My Presences.pdf"
+      end
       end
     end
 

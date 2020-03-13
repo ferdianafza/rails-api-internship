@@ -86,3 +86,10 @@ gem 'rubyzip'
 gem 'axlsx'
 
 gem 'axlsx_rails'
+
+gem 'prawn'
+
+# gem 'wicked_pdf'
+
+# gem 'wkhtmltopdf-binary'
+gem "prawn-table", "~> 0.2.2"

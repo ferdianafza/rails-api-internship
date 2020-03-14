@@ -10,40 +10,6 @@
 #                                       PUT        /admin/password(.:format)                                                                active_admin/devise/passwords#update
 #                                       POST       /admin/password(.:format)                                                                active_admin/devise/passwords#create
 #                            admin_root GET        /admin(.:format)                                                                         admin/dashboard#index
-#          batch_action_admin_presences POST       /admin/presences/batch_action(.:format)                                                  admin/presences#batch_action
-#                       admin_presences GET        /admin/presences(.:format)                                                               admin/presences#index
-#                                       POST       /admin/presences(.:format)                                                               admin/presences#create
-#                   edit_admin_presence GET        /admin/presences/:id/edit(.:format)                                                      admin/presences#edit
-#                        admin_presence GET        /admin/presences/:id(.:format)                                                           admin/presences#show
-#                                       PATCH      /admin/presences/:id(.:format)                                                           admin/presences#update
-#                                       PUT        /admin/presences/:id(.:format)                                                           admin/presences#update
-#                                       DELETE     /admin/presences/:id(.:format)                                                           admin/presences#destroy
-#            batch_action_admin_reports POST       /admin/reports/batch_action(.:format)                                                    admin/reports#batch_action
-#                         admin_reports GET        /admin/reports(.:format)                                                                 admin/reports#index
-#                                       POST       /admin/reports(.:format)                                                                 admin/reports#create
-#                     edit_admin_report GET        /admin/reports/:id/edit(.:format)                                                        admin/reports#edit
-#                          admin_report GET        /admin/reports/:id(.:format)                                                             admin/reports#show
-#                                       PATCH      /admin/reports/:id(.:format)                                                             admin/reports#update
-#                                       PUT        /admin/reports/:id(.:format)                                                             admin/reports#update
-#                                       DELETE     /admin/reports/:id(.:format)                                                             admin/reports#destroy
-#        batch_action_admin_admin_users POST       /admin/admin_users/batch_action(.:format)                                                admin/admin_users#batch_action
-#                     admin_admin_users GET        /admin/admin_users(.:format)                                                             admin/admin_users#index
-#                                       POST       /admin/admin_users(.:format)                                                             admin/admin_users#create
-#                  new_admin_admin_user GET        /admin/admin_users/new(.:format)                                                         admin/admin_users#new
-#                 edit_admin_admin_user GET        /admin/admin_users/:id/edit(.:format)                                                    admin/admin_users#edit
-#                      admin_admin_user GET        /admin/admin_users/:id(.:format)                                                         admin/admin_users#show
-#                                       PATCH      /admin/admin_users/:id(.:format)                                                         admin/admin_users#update
-#                                       PUT        /admin/admin_users/:id(.:format)                                                         admin/admin_users#update
-#                                       DELETE     /admin/admin_users/:id(.:format)                                                         admin/admin_users#destroy
-#             batch_action_admin_majors POST       /admin/majors/batch_action(.:format)                                                     admin/majors#batch_action
-#                          admin_majors GET        /admin/majors(.:format)                                                                  admin/majors#index
-#                                       POST       /admin/majors(.:format)                                                                  admin/majors#create
-#                       new_admin_major GET        /admin/majors/new(.:format)                                                              admin/majors#new
-#                      edit_admin_major GET        /admin/majors/:id/edit(.:format)                                                         admin/majors#edit
-#                           admin_major GET        /admin/majors/:id(.:format)                                                              admin/majors#show
-#                                       PATCH      /admin/majors/:id(.:format)                                                              admin/majors#update
-#                                       PUT        /admin/majors/:id(.:format)                                                              admin/majors#update
-#                                       DELETE     /admin/majors/:id(.:format)                                                              admin/majors#destroy
 #           batch_action_admin_students POST       /admin/students/batch_action(.:format)                                                   admin/students#batch_action
 #                        admin_students GET        /admin/students(.:format)                                                                admin/students#index
 #                                       POST       /admin/students(.:format)                                                                admin/students#create
@@ -63,6 +29,40 @@
 #                                       PUT        /admin/provinces/:id(.:format)                                                           admin/provinces#update
 #                                       DELETE     /admin/provinces/:id(.:format)                                                           admin/provinces#destroy
 #                       admin_dashboard GET        /admin/dashboard(.:format)                                                               admin/dashboard#index
+#             batch_action_admin_majors POST       /admin/majors/batch_action(.:format)                                                     admin/majors#batch_action
+#                          admin_majors GET        /admin/majors(.:format)                                                                  admin/majors#index
+#                                       POST       /admin/majors(.:format)                                                                  admin/majors#create
+#                       new_admin_major GET        /admin/majors/new(.:format)                                                              admin/majors#new
+#                      edit_admin_major GET        /admin/majors/:id/edit(.:format)                                                         admin/majors#edit
+#                           admin_major GET        /admin/majors/:id(.:format)                                                              admin/majors#show
+#                                       PATCH      /admin/majors/:id(.:format)                                                              admin/majors#update
+#                                       PUT        /admin/majors/:id(.:format)                                                              admin/majors#update
+#                                       DELETE     /admin/majors/:id(.:format)                                                              admin/majors#destroy
+#          batch_action_admin_presences POST       /admin/presences/batch_action(.:format)                                                  admin/presences#batch_action
+#                       admin_presences GET        /admin/presences(.:format)                                                               admin/presences#index
+#                                       POST       /admin/presences(.:format)                                                               admin/presences#create
+#                   edit_admin_presence GET        /admin/presences/:id/edit(.:format)                                                      admin/presences#edit
+#                        admin_presence GET        /admin/presences/:id(.:format)                                                           admin/presences#show
+#                                       PATCH      /admin/presences/:id(.:format)                                                           admin/presences#update
+#                                       PUT        /admin/presences/:id(.:format)                                                           admin/presences#update
+#                                       DELETE     /admin/presences/:id(.:format)                                                           admin/presences#destroy
+#        batch_action_admin_admin_users POST       /admin/admin_users/batch_action(.:format)                                                admin/admin_users#batch_action
+#                     admin_admin_users GET        /admin/admin_users(.:format)                                                             admin/admin_users#index
+#                                       POST       /admin/admin_users(.:format)                                                             admin/admin_users#create
+#                  new_admin_admin_user GET        /admin/admin_users/new(.:format)                                                         admin/admin_users#new
+#                 edit_admin_admin_user GET        /admin/admin_users/:id/edit(.:format)                                                    admin/admin_users#edit
+#                      admin_admin_user GET        /admin/admin_users/:id(.:format)                                                         admin/admin_users#show
+#                                       PATCH      /admin/admin_users/:id(.:format)                                                         admin/admin_users#update
+#                                       PUT        /admin/admin_users/:id(.:format)                                                         admin/admin_users#update
+#                                       DELETE     /admin/admin_users/:id(.:format)                                                         admin/admin_users#destroy
+#            batch_action_admin_reports POST       /admin/reports/batch_action(.:format)                                                    admin/reports#batch_action
+#                         admin_reports GET        /admin/reports(.:format)                                                                 admin/reports#index
+#                                       POST       /admin/reports(.:format)                                                                 admin/reports#create
+#                     edit_admin_report GET        /admin/reports/:id/edit(.:format)                                                        admin/reports#edit
+#                          admin_report GET        /admin/reports/:id(.:format)                                                             admin/reports#show
+#                                       PATCH      /admin/reports/:id(.:format)                                                             admin/reports#update
+#                                       PUT        /admin/reports/:id(.:format)                                                             admin/reports#update
+#                                       DELETE     /admin/reports/:id(.:format)                                                             admin/reports#destroy
 #                        admin_comments GET        /admin/comments(.:format)                                                                admin/comments#index
 #                                       POST       /admin/comments(.:format)                                                                admin/comments#create
 #                         admin_comment GET        /admin/comments/:id(.:format)                                                            admin/comments#show

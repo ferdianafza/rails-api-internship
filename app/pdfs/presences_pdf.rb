@@ -8,12 +8,11 @@ class PresencesPdf < Prawn::Document
 
 	def presence
 		text "My Presences"
-		
 	end
-	
+
 	def my_presences
 		move_down 20
-		table presences_rows do 
+		table presences_rows do
 			row(0).font_style = :bold
 			columns(1..2).align = :right
 			self.row_colors = ["DDDDDD", "FFFFFF"]
@@ -22,10 +21,10 @@ class PresencesPdf < Prawn::Document
 	end
 
 	def presences_rows
-		[["Checkin", "Checkout"]] +
+		[["Date", "Checkin", "Checkout"]] +
 		@presences.map do |presence|
-			[presence.checkin.to_s, presence.checkout.to_s]
+			[presence.created_at.to_s, presence.checkin.to_s, presence.checkout.to_s]
 		end
 	end
-	
+
 end

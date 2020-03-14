@@ -50,9 +50,9 @@ group :development do
   gem 'annotate', git: 'https://github.com/ctran/annotate_models.git'
 end
 
-group :production do
-  gem 'pg'
-end
+# group :production do
+#   gem 'pg'
+# end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver

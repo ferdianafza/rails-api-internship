@@ -3,7 +3,6 @@
 # Table name: reports
 #
 #  id         :integer          not null, primary key
-#  content    :string
 #  subject    :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -15,19 +14,18 @@ class Report < ApplicationRecord
   has_rich_text :content
   has_one_attached :document
 
-  validates :content , :subject, presence: true
-
-
+  validates :content, :subject, presence: true
 
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
-      csv << column_names
+      csv << column_names.push("content")
       all.each do |report|
-        csv << report.attributes.values_at(*column_names)
+        tmp = report.attributes.values_at(*column_names)
+        str = ActionView::Base.full_sanitizer.sanitize(report.content.to_s)
+        tmp.push(str)
+        csv << tmp
       end
     end
   end
-
-
 
 end

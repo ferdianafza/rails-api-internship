@@ -3,7 +3,7 @@
 		<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
 			<h6 class="m-0 font-weight-bold text-primary">
 				<%= @report.subject %>
-				<%= link_to "PDF", report_path(format: "pdf") %>
+				<%= link_to "pdf", report_path(format: "pdf"), id: 'pdf-report' %>
 			</h6>
 				<%= @report.created_at.strftime("%A, %e %B %Y - %H:%M") %>
 		</div>

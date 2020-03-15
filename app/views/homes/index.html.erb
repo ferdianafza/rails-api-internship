@@ -56,9 +56,9 @@
       <div class="col-xl-8 col-lg-7">
         <div class="card shadow mb-4 table-in-index">
           <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">My Reports 
-              <%= link_to "CSV", reports_path(format: "csv") %>
-              <%= link_to "Excel", reports_path(format: "xls") %>
+            <h6 class="m-0 font-weight-bold text-primary">My Reports
+              <%= link_to "csv", reports_path(format: "csv"), id: 'csv' %>
+              <%= link_to "excel", reports_path(format: "xls"), id: 'excel' %>
             </h6>
           </div>
           <div class="card-body">
@@ -93,10 +93,10 @@
               <!-- Project Card Example -->
               <div class="card shadow mb-4 table-in-index">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">My Presences 
-                    <%= link_to "CSV", presences_path(format: "csv") %>
-                    <%= link_to "Excel", presences_path(format: "xls") %>
-                    <%= link_to "Pdf", presences_path(format: "pdf") %>
+                  <h6 class="m-0 font-weight-bold text-primary">My Presences
+                    <%= link_to "csv", presences_path(format: "csv"), id: 'csv-presence' %>
+                    <%= link_to "excel", presences_path(format: "xls"), id: 'excel-presence'  %>
+                    <%= link_to "pdf", presences_path(format: "pdf"), id: 'pdf-presence'%>
                     </h6>
                 </div>
                 <div class="card-body">

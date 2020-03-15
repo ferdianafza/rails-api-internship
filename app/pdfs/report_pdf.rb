@@ -7,10 +7,11 @@ class ReportPdf < Prawn::Document
 	end
 
 	def report_subject
-		text "subject : #{@report.subject}", size: 30, style: :bold
+		text "Subject : #{@report.subject}", size: 30, style: :bold
 	end
 
 	def report_content
-		text "content : #{@report.rich_text_content.to_s}", size: 30, style: :bold
+		content = ActionView::Base.full_sanitizer.sanitize(@report.rich_text_content.to_s)
+		text "Content : #{content}", size: 30, style: :bold
 	end
 end

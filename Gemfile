@@ -96,6 +96,7 @@ gem "prawn-table", "~> 0.2.2"
 
 gem 'rack-cors'
 
+
 gem 'devise-jwt', '~> 0.5.9'
 
 gem 'dry-configurable', '0.9'

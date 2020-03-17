@@ -6,6 +6,7 @@ class ReportsController < ApplicationController
     @reports = current_student.reports.order(created_at: :desc).page params[:page]
     respond_to do |format|
       format.html
+      format.json { render json: @reports }
       format.csv { send_data @reports.to_csv }
       format.xls  { send_data @reports.to_csv(col_sep: "\t") }
     end
@@ -18,9 +19,10 @@ class ReportsController < ApplicationController
   def show
     respond_to do |format|
       format.html
+      format.json { render json: @report }
       format.pdf do
         pdf = ReportPdf.new(@report)
-        send_data pdf.render, 
+        send_data pdf.render,
             filename: "#{@report.subject}.pdf"
       end
     end

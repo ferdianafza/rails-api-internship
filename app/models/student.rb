@@ -32,8 +32,10 @@
 class Student < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable,  :recoverable,  :omniauthable,  
-          :rememberable, :validatable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable,
+         :jwt_authenticatable, jwt_revocation_strategy: JwtBlacklist
+
 
   has_many :reports, dependent: :destroy
   has_many :presences, dependent: :destroy
@@ -46,8 +48,8 @@ class Student < ApplicationRecord
             :phone, :mother_name, :father_name, :emergency_number, :address,
             :latitude, :longitude, :city, :province, :zipcode, :start_date, :end_date, presence: true
 
-  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i } 
-  validates :phone, :emergency_number, format: { with: /\+?([ -]?\d+)+|\(\d+\)([ -]\d+)/ } 
+  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
+  validates :phone, :emergency_number, format: { with: /\+?([ -]?\d+)+|\(\d+\)([ -]\d+)/ }
 
   validates :nis, length: { minimum: 5, maximum: 15 }
   validates :zipcode, length: { minimum: 5, maximum: 7 }

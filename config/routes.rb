@@ -67,46 +67,47 @@
 #                                       POST       /admin/comments(.:format)                                                                admin/comments#create
 #                         admin_comment GET        /admin/comments/:id(.:format)                                                            admin/comments#show
 #                                       DELETE     /admin/comments/:id(.:format)                                                            admin/comments#destroy
-#                   new_student_session GET        /students/sign_in(.:format)                                                              students/sessions#new
-#                       student_session POST       /students/sign_in(.:format)                                                              students/sessions#create
-#               destroy_student_session DELETE     /students/sign_out(.:format)                                                             students/sessions#destroy
-#                  new_student_password GET        /students/password/new(.:format)                                                         students/passwords#new
-#                 edit_student_password GET        /students/password/edit(.:format)                                                        students/passwords#edit
-#                      student_password PATCH      /students/password(.:format)                                                             students/passwords#update
-#                                       PUT        /students/password(.:format)                                                             students/passwords#update
-#                                       POST       /students/password(.:format)                                                             students/passwords#create
-#                               sign_in GET        /sign_in(.:format)                                                                       devise/sessions#new
-#                     students_sign_out GET        /students/sign_out(.:format)                                                             devise/sessions#destroy
-#                         students_edit GET        /students/edit(.:format)                                                                 devise/registrations#edit
-#                     user_registration PUT        /users(.:format)                                                                         devise/registrations#update
-#                                       GET        /students/edit(.:format)                                                                 devise/sessions#edit
-#                               reports GET        /reports(.:format)                                                                       reports#index
-#                                       POST       /reports(.:format)                                                                       reports#create
-#                            new_report GET        /reports/new(.:format)                                                                   reports#new
-#                                report GET        /reports/:id(.:format)                                                                   reports#show
-#                                       DELETE     /reports/:id(.:format)                                                                   reports#destroy
-#                             presences GET        /presences(.:format)                                                                     presences#index
-#                                       POST       /presences(.:format)                                                                     presences#create
-#                          new_presence GET        /presences/new(.:format)                                                                 presences#new
-#                         edit_presence GET        /presences/:id/edit(.:format)                                                            presences#edit
-#                              presence GET        /presences/:id(.:format)                                                                 presences#show
-#                                       PATCH      /presences/:id(.:format)                                                                 presences#update
-#                                       PUT        /presences/:id(.:format)                                                                 presences#update
-#                                       DELETE     /presences/:id(.:format)                                                                 presences#destroy
-#                       myprofile_homes GET        /homes/myprofile(.:format)                                                               homes#myprofile
-#                                 homes GET        /homes(.:format)                                                                         homes#index
-#                                       POST       /homes(.:format)                                                                         homes#create
-#                              new_home GET        /homes/new(.:format)                                                                     homes#new
-#                             edit_home GET        /homes/:id/edit(.:format)                                                                homes#edit
-#                                  home GET        /homes/:id(.:format)                                                                     homes#show
-#                                       PATCH      /homes/:id(.:format)                                                                     homes#update
-#                                       PUT        /homes/:id(.:format)                                                                     homes#update
-#                                       DELETE     /homes/:id(.:format)                                                                     homes#destroy
-#                          friend_index GET        /friend/index(.:format)                                                                  friend#index
-#                           friend_show GET        /friend/show(.:format)                                                                   friend#show
-#                      presences_update GET        /presences/update(.:format)                                                              presences#update
-#                                       POST       /presences/update(.:format)                                                              presences#update
-#                                  root GET        /                                                                                        homes#index
+#            new_api_v1_student_session GET        /api/v1/login(.:format)                                                                  api/v1/devise/sessions#new
+#                api_v1_student_session POST       /api/v1/login(.:format)                                                                  api/v1/devise/sessions#create
+#        destroy_api_v1_student_session DELETE     /api/v1/logout(.:format)                                                                 api/v1/devise/sessions#destroy
+#           new_api_v1_student_password GET        /api/v1/password/new(.:format)                                                           api/v1/passwords#new
+#          edit_api_v1_student_password GET        /api/v1/password/edit(.:format)                                                          api/v1/passwords#edit
+#               api_v1_student_password PATCH      /api/v1/password(.:format)                                                               api/v1/passwords#update
+#                                       PUT        /api/v1/password(.:format)                                                               api/v1/passwords#update
+#                                       POST       /api/v1/password(.:format)                                                               api/v1/passwords#create
+#    cancel_api_v1_student_registration GET        /api/v1/signup/cancel(.:format)                                                          api/v1/devise/registrations#cancel
+#       new_api_v1_student_registration GET        /api/v1/signup/sign_up(.:format)                                                         api/v1/devise/registrations#new
+#      edit_api_v1_student_registration GET        /api/v1/signup/edit(.:format)                                                            api/v1/devise/registrations#edit
+#           api_v1_student_registration PATCH      /api/v1/signup(.:format)                                                                 api/v1/devise/registrations#update
+#                                       PUT        /api/v1/signup(.:format)                                                                 api/v1/devise/registrations#update
+#                                       DELETE     /api/v1/signup(.:format)                                                                 api/v1/devise/registrations#destroy
+#                                       POST       /api/v1/signup(.:format)                                                                 api/v1/devise/registrations#create
+#                       api_v1_students GET        /api/v1/students(.:format)                                                               api/v1/students#index
+#                                       POST       /api/v1/students(.:format)                                                               api/v1/students#create
+#                        api_v1_student GET        /api/v1/students/:id(.:format)                                                           api/v1/students#show
+#                                       PATCH      /api/v1/students/:id(.:format)                                                           api/v1/students#update
+#                                       PUT        /api/v1/students/:id(.:format)                                                           api/v1/students#update
+#                                       DELETE     /api/v1/students/:id(.:format)                                                           api/v1/students#destroy
+#                        api_v1_reports GET        /api/v1/reports(.:format)                                                                api/v1/reports#index
+#                                       POST       /api/v1/reports(.:format)                                                                api/v1/reports#create
+#                         api_v1_report GET        /api/v1/reports/:id(.:format)                                                            api/v1/reports#show
+#                                       PATCH      /api/v1/reports/:id(.:format)                                                            api/v1/reports#update
+#                                       PUT        /api/v1/reports/:id(.:format)                                                            api/v1/reports#update
+#                                       DELETE     /api/v1/reports/:id(.:format)                                                            api/v1/reports#destroy
+#                      api_v1_presences GET        /api/v1/presences(.:format)                                                              api/v1/presences#index
+#                                       POST       /api/v1/presences(.:format)                                                              api/v1/presences#create
+#                       api_v1_presence GET        /api/v1/presences/:id(.:format)                                                          api/v1/presences#show
+#                                       PATCH      /api/v1/presences/:id(.:format)                                                          api/v1/presences#update
+#                                       PUT        /api/v1/presences/:id(.:format)                                                          api/v1/presences#update
+#                                       DELETE     /api/v1/presences/:id(.:format)                                                          api/v1/presences#destroy
+#                   api_v1_friend_index GET        /api/v1/friend(.:format)                                                                 api/v1/friend#index
+#                                       POST       /api/v1/friend(.:format)                                                                 api/v1/friend#create
+#                         api_v1_friend GET        /api/v1/friend/:id(.:format)                                                             api/v1/friend#show
+#                                       PATCH      /api/v1/friend/:id(.:format)                                                             api/v1/friend#update
+#                                       PUT        /api/v1/friend/:id(.:format)                                                             api/v1/friend#update
+#                                       DELETE     /api/v1/friend/:id(.:format)                                                             api/v1/friend#destroy
+#                api_v1_homes_myprofile GET        /api/v1/homes/myprofile(.:format)                                                        api/v1/homes#myprofile
+#                    api_v1_homes_index GET        /api/v1/homes/index(.:format)                                                            api/v1/homes#index
 #         rails_mandrill_inbound_emails POST       /rails/action_mailbox/mandrill/inbound_emails(.:format)                                  action_mailbox/ingresses/mandrill/inbound_emails#create
 #         rails_postmark_inbound_emails POST       /rails/action_mailbox/postmark/inbound_emails(.:format)                                  action_mailbox/ingresses/postmark/inbound_emails#create
 #            rails_relay_inbound_emails POST       /rails/action_mailbox/relay/inbound_emails(.:format)                                     action_mailbox/ingresses/relay/inbound_emails#create
@@ -114,8 +115,6 @@
 #          rails_mailgun_inbound_emails POST       /rails/action_mailbox/mailgun/inbound_emails/mime(.:format)                              action_mailbox/ingresses/mailgun/inbound_emails#create
 #        rails_conductor_inbound_emails GET        /rails/conductor/action_mailbox/inbound_emails(.:format)                                 rails/conductor/action_mailbox/inbound_emails#index
 #                                       POST       /rails/conductor/action_mailbox/inbound_emails(.:format)                                 rails/conductor/action_mailbox/inbound_emails#create
-#     new_rails_conductor_inbound_email GET        /rails/conductor/action_mailbox/inbound_emails/new(.:format)                             rails/conductor/action_mailbox/inbound_emails#new
-#    edit_rails_conductor_inbound_email GET        /rails/conductor/action_mailbox/inbound_emails/:id/edit(.:format)                        rails/conductor/action_mailbox/inbound_emails#edit
 #         rails_conductor_inbound_email GET        /rails/conductor/action_mailbox/inbound_emails/:id(.:format)                             rails/conductor/action_mailbox/inbound_emails#show
 #                                       PATCH      /rails/conductor/action_mailbox/inbound_emails/:id(.:format)                             rails/conductor/action_mailbox/inbound_emails#update
 #                                       PUT        /rails/conductor/action_mailbox/inbound_emails/:id(.:format)                             rails/conductor/action_mailbox/inbound_emails#update
@@ -128,34 +127,60 @@
 #                  rails_direct_uploads POST       /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
 
 Rails.application.routes.draw do
-   default_url_options :host => "farisafza201002@gmail.com"
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  devise_for :students, :skip => [:registerable, :registrations],
-                        controllers: { sessions: 'students/sessions',
-                                        passwords: "students/passwords" }
-  devise_scope :user do
-    get 'sign_in', to: 'devise/sessions#new'
-    get '/students/sign_out' => 'devise/sessions#destroy'
-    get "/students/edit" => "devise/registrations#edit"
-    put 'users' => 'devise/registrations#update', :as => 'user_registration'
-    get '/students/edit', to: "devise/sessions#edit"
+  # devise_for :students, :skip => [:registerable, :registrations],
+  #                       controllers: { sessions: 'students/sessions',
+  #                                       passwords: "students/passwords" }
+  # devise_scope :user do
+  #   get 'sign_in', to: 'devise/sessions#new'
+  #   get '/students/sign_out' => 'devise/sessions#destroy'
+  #   get "/students/edit" => "devise/registrations#edit"
+  #   put 'users' => 'devise/registrations#update', :as => 'user_registration'
+  #   get '/students/edit', to: "devise/sessions#edit"
+  # end
+
+  # resources :reports, :except => [:edit, :update, :delete]
+  # resources :presences, :except => [:delete]
+  # resources :homes do
+  #   get 'myprofile', :on => :collection
+  # end
+
+  # get "/friend/index" => "/friend/index"
+  # get "/friend/show" => "/friend/show"
+
+
+  # get "/presences/update" => "/presences/update"
+  # post "/presences/update" => "/presences/update"
+
+
+  namespace :api do
+    namespace :v1 do
+
+      devise_for :students,
+                 path: '',
+                 path_names: {
+                   sign_in: 'login',
+                   sign_out: 'logout',
+                   registration: 'signup',
+                 },
+                 controllers: {
+                   reports: 'api/v1/report/reports',
+                   sessions: 'api/v1/devise/sessions',
+                   registrations: 'api/v1/devise/registrations'
+                 }
+
+      resources :students
+      resources :reports
+      resources :presences
+      resources :friend
+      # get 'users/myprofile'
+      get 'homes/myprofile'
+      get 'homes/index'
+    end
   end
 
-  resources :reports, :except => [:edit, :update, :delete]
-  resources :presences, :except => [:delete]
-  resources :homes do
-    get 'myprofile', :on => :collection
-  end
-
-  get "/friend/index" => "/friend/index"
-  get "/friend/show" => "/friend/show"
-
-
-  get "/presences/update" => "/presences/update"
-  post "/presences/update" => "/presences/update"
-
-  root to: 'homes#index'
+  # root to: 'homes#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

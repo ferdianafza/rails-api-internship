@@ -8,11 +8,12 @@ class PresencesController < ApplicationController
       @presences = current_student.presences.order(created_at: :desc).page params[:page]
       respond_to do |format|
         format.html
+        format.json { render json: @presences }
         format.csv { send_data @presences.to_csv }
         format.xls  { send_data @presences.to_csv(col_sep: "\t") }
         format.pdf do
         pdf = PresencesPdf.new(@presences)
-        send_data pdf.render, 
+        send_data pdf.render,
             filename: "My Presences.pdf"
       end
       end
@@ -30,7 +31,7 @@ class PresencesController < ApplicationController
       respond_to do |format|
         if @presence_to_update.update(presence_params)
           format.html { redirect_to "/", notice: 'Goodbye, be careful.' }
-          format.json { render :show, status: :ok, location: @presence }
+          format.json { render :show, status: :ok }
         else
           format.html { render :edit }
           format.json { render json: @presence.errors, status: :unprocessable_entity }
@@ -44,7 +45,7 @@ class PresencesController < ApplicationController
       respond_to do |format|
         if @presence.save
           format.html { redirect_to "/", notice: 'Welcome to 41studio, have a good work.' }
-          format.json { render :show, status: :created, location: @presence }
+          format.json { render :show, status: :created }
         else
           format.html { render :new }
           format.json { render json: @presence.errors, status: :unprocessable_entity }

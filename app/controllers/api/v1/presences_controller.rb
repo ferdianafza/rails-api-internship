@@ -5,11 +5,16 @@ class Api::V1::PresencesController < ApplicationController
     before_action :set_student, only: [:index, :new]
 
     def index
-      @presences = current_api_v1_student.presences.order(created_at: :desc).page params[:page]
+      @presences = current_api_v1_student.presences
+                                    .order(created_at: :desc)
+                                    # .page params[:page]
       # respond_to do |format|
       #   format.html
         # format.json { render json: @presences }
-        render json: @presences
+      # render json: @presences
+      totalpresences = @presences.count.to_f
+      pageCount = (totalpresences / 5.to_f).ceil
+      render json: { presences: @presences, meta: { totalPage: pageCount, totalPrenseces: @presences.count } }
       #   format.csv { send_data @presences.to_csv }
       #   format.xls  { send_data @presences.to_csv(col_sep: "\t") }
       #   format.pdf do

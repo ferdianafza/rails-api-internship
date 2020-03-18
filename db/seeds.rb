@@ -27,8 +27,8 @@ for province in provinces
 end
 
 data = {
-        email: Faker::Internet.email, 
-        firstname: Faker::Name.first_name, 
+        email: "user1@gmail.com",
+        firstname: Faker::Name.first_name,
         lastname: Faker::Name.last_name,
         password: "password",
         password_confirmation: "password",

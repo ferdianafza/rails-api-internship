@@ -166,7 +166,6 @@ Rails.application.routes.draw do
                    registration: 'signup',
                  },
                  controllers: {
-                   reports: 'api/v1/report/reports',
                    sessions: 'api/v1/devise/sessions',
                    registrations: 'api/v1/devise/registrations'
                  }

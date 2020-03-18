@@ -5,6 +5,7 @@ class Api::V1::ReportsController < ApplicationController
   def index
     @reports = current_api_v1_student.reports
                                 .order(created_at: :desc)
+                                .page params[:page]
     # respond_to do |format|
     #   format.html
     #   format.json
@@ -22,7 +23,7 @@ class Api::V1::ReportsController < ApplicationController
     # respond_to do |format|
     #   format.html
       # format.json { render   json: @report }
-      render json: @report
+      render json: @report, status: :hello
     #   format.pdf do
     #     pdf = ReportPdf.new(@report)
     #     send_data pdf.render,

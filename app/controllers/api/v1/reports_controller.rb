@@ -5,11 +5,14 @@ class Api::V1::ReportsController < ApplicationController
   def index
     @reports = current_api_v1_student.reports
                                 .order(created_at: :desc)
-                                .page params[:page]
+                                # .page params[:page]
     # respond_to do |format|
     #   format.html
     #   format.json
-    render json: @reports
+    totalreports = @reports.count.to_f
+    pageCount = (totalreports / 5.to_f).ceil
+    # render json: @reports
+    render json: { reports: @reports, meta: { totalPage: pageCount, totalReports: @reports.count } }
       # format.csv { send_data @reports.to_csv }
       # format.xls  { send_data @reports.to_csv(col_sep: "\t") }
     # end

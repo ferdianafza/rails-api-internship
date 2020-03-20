@@ -8,16 +8,13 @@ class Api::V1::ReportsController < ApplicationController
                                 .page params[:page]
     @reports_all = current_api_v1_student.reports
                                     .order(created_at: :desc)
-    # respond_to do |format|
-    #   format.html
-    #   format.json
-    totalreports = @reports_all.count.to_f
-    pageCount = (totalreports / 5.to_f).ceil
-    # render json: @reports
-    render json: { reports: @reports, meta: { totalPage: pageCount, totalReports: @reports_all.count } }
-      # format.csv { send_data @reports.to_csv }
-      # format.xls  { send_data @reports.to_csv(col_sep: "\t") }
-    # end
+    respond_to do |format|
+      totalreports = @reports_all.count.to_f
+      pageCount = (totalreports / 5.to_f).ceil
+      format.json { render json: { reports: @reports, meta: { totalPage: pageCount, totalReports: @reports_all.count } } }
+      format.csv { send_data @reports.to_csv }
+      format.xls  { send_data @reports.to_csv(col_sep: "\t") }
+    end
   end
 
   def new
@@ -25,16 +22,14 @@ class Api::V1::ReportsController < ApplicationController
   end
 
   def show
-    # respond_to do |format|
-    #   format.html
-      # format.json { render   json: @report }
-      render json: @report, status: :hello
-    #   format.pdf do
-    #     pdf = ReportPdf.new(@report)
-    #     send_data pdf.render,
-    #         filename: "#{@report.subject}.pdf"
-    #   end
-    # end
+    respond_to do |format|
+      format.json { render   json: @report }
+      format.pdf do
+        pdf = ReportPdf.new(@report)
+        send_data pdf.render,
+            filename: "#{@report.subject}.pdf"
+      end
+    end
   end
 
   def create

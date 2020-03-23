@@ -14,7 +14,7 @@ class Api::V1::PresencesController < ApplicationController
       respond_to do |format|
         totalpresences = @presences_all.count.to_f
         pageCount = (totalpresences / 5.to_f).ceil
-        format.json { render json: { presences: @presences, meta: { totalPage: pageCount, totalPrenseces: @presences_all.count } } }
+        format.json { render json: { presences: @presences, meta: { totalPage: pageCount, totalPrenseces: @presences_all.count, presenceLast: @presences_all.last  } } }
         format.csv { send_data @presences.to_csv }
         format.xls  { send_data @presences.to_csv(col_sep: "\t") }
         format.pdf do

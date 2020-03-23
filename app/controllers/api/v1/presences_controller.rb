@@ -11,10 +11,13 @@ class Api::V1::PresencesController < ApplicationController
                                     .page params[:page]
       @presences_all = current_api_v1_student.presences
                                     .order(created_at: :desc)
+      @presence_last = current_api_v1_student.presences.last.id
       respond_to do |format|
         totalpresences = @presences_all.count.to_f
         pageCount = (totalpresences / 5.to_f).ceil
-        format.json { render json: { presences: @presences, meta: { totalPage: pageCount, totalPrenseces: @presences_all.count, presenceLast: @presences_all.last  } } }
+        format.json { render json: { presences: @presences, meta: { totalPage: pageCount,
+                                               totalPrenseces: @presences_all.count,
+                                              presenceLast: @presence_last  } } }
         format.csv { send_data @presences.to_csv }
         format.xls  { send_data @presences.to_csv(col_sep: "\t") }
         format.pdf do

@@ -3,6 +3,7 @@ class Api::V1::PresencesController < ApplicationController
     before_action :authenticate_api_v1_student!, except: [:show]
     before_action :set_checkout, only: [:show, :checkout, :update]
     before_action :set_student, only: [:index, :new]
+    before_action :set_presence, only: [:update, :show]
 
     def index
       @presences = current_api_v1_student.presences
@@ -30,15 +31,23 @@ class Api::V1::PresencesController < ApplicationController
 
     def edit; end
 
+    def show
+      @presence = Presence.find(params[:id])
+      respond_to do |format|
+        format.json { render json: @presence }
+      end
+    end
+
     def checkout; end
 
     def update
+      @presence = Presence.find(params[:id])
       respond_to do |format|
-        if @presence_to_update.update(presence_params)
-          format.html { redirect_to "/", notice: 'Goodbye, be careful.' }
-          format.json { render :show, status: :ok }
+        if @presence.update(presence_params)
+          # format.html { redirect_to "/", notice: 'Goodbye, be careful.' }
+          format.json { render json: :@presence }
         else
-          format.html { render :edit }
+          # format.html { render :edit }
           format.json { render json: @presence.errors, status: :unprocessable_entity }
         end
       end

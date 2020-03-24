@@ -21,18 +21,6 @@ GIT
       polyamorous (= 2.3.2)
 
 GIT
-  remote: https://github.com/audionerd/draper.git
-  revision: e816e0e5876b76c648c0928f1c3f2aa2c7a3d1f2
-  ref: e816e0e587
-  branch: rails5
-  specs:
-    draper (2.1.0)
-      actionpack (>= 3.0)
-      activemodel (>= 3.0)
-      activesupport (>= 3.0)
-      request_store (~> 1.0)
-
-GIT
   remote: https://github.com/ctran/annotate_models.git
   revision: 111640d077836ced23cfffb882c93e40968ab9d9
   specs:
@@ -196,6 +184,12 @@ GEM
     dotenv-rails (2.7.5)
       dotenv (= 2.7.5)
       railties (>= 3.2, < 6.1)
+    draper (4.0.0)
+      actionpack (>= 5.0)
+      activemodel (>= 5.0)
+      activemodel-serializers-xml (>= 1.0)
+      activesupport (>= 5.0)
+      request_store (>= 1.0)
     dry-auto_inject (0.7.0)
       dry-container (>= 0.3.4)
     dry-configurable (0.9.0)
@@ -437,7 +431,7 @@ DEPENDENCIES
   devise
   devise-jwt (~> 0.5.9)
   dotenv-rails
-  draper!
+  draper
   dry-configurable (= 0.9)
   faker!
   font-awesome-rails (~> 4.7)

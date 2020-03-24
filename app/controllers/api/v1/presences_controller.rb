@@ -12,12 +12,24 @@ class Api::V1::PresencesController < ApplicationController
       @presences_all = current_api_v1_student.presences
                                     .order(created_at: :desc)
       @presence_last = current_api_v1_student.presences.last.id
+      if current_api_v1_student.presences.last.checkin.to_date != Date.today
+        @to_checkin = true
+      else
+        @to_checkin = false
+      end
+      if current_api_v1_student.presences.last.checkout == nil
+        @to_checkout = true
+      else
+        @to_checkout = false
+      end
       respond_to do |format|
         totalpresences = @presences_all.count.to_f
         pageCount = (totalpresences / 5.to_f).ceil
         format.json { render json: { presences: @presences, meta: { totalPage: pageCount,
                                                totalPrenseces: @presences_all.count,
-                                              presenceLast: @presence_last  } } }
+                                              presenceLast: @presence_last,
+                                              toCheckin: @to_checkin,
+                                              toCheckout: @to_checkout  } } }
         format.csv { send_data @presences.to_csv }
         format.xls  { send_data @presences.to_csv(col_sep: "\t") }
         format.pdf do
@@ -48,7 +60,7 @@ class Api::V1::PresencesController < ApplicationController
       respond_to do |format|
         if @presence.update(presence_params)
           # format.html { redirect_to "/", notice: 'Goodbye, be careful.' }
-          format.json { render json: :@presence }
+          format.json { render json: @presence }
         else
           # format.html { render :edit }
           format.json { render json: @presence.errors, status: :unprocessable_entity }

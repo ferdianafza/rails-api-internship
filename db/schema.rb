@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_18_095206) do
+ActiveRecord::Schema.define(version: 2020_03_24_012904) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -84,8 +84,8 @@ ActiveRecord::Schema.define(version: 2020_03_18_095206) do
   end
 
   create_table "presences", force: :cascade do |t|
-    t.datetime "checkin"
-    t.datetime "checkout"
+    t.string "checkin"
+    t.string "checkout"
     t.integer "student_id"
     t.date "created_at", null: false
     t.date "updated_at", null: false

@@ -36,6 +36,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Use sqlite3 as the database for Active Record
+  gem 'minitest-rails'
+  gem 'minitest-rails-capybara'
   gem 'sqlite3', '~> 1.4'
 end
 
@@ -100,3 +102,15 @@ gem 'rack-cors'
 gem 'devise-jwt', '~> 0.5.9'
 
 gem 'dry-configurable', '0.9'
+
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+
+gem 'ransack',    github: 'activerecord-hackery/ransack'
+
+gem 'formtastic', github: 'justinfrench/formtastic'
+
+gem 'draper',     github: 'audionerd/draper', branch: 'rails5', ref: 'e816e0e587'
+
+gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml'
+
+gem 'jquery-ui-rails', '~> 5.0.4'
